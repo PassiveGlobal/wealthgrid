@@ -27,15 +27,12 @@ export const Navbar = () => {
           </Link>
           {!session && (
             <div className="hidden md:flex gap-6">
-              <a href="#features" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
-                Features
-              </a>
-              <a href="#testimonials" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+              <Link to="/testimonials" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
                 Testimonials
-              </a>
-              <a href="#contact" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+              </Link>
+              <Link to="/contact" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
                 Contact
-              </a>
+              </Link>
             </div>
           )}
         </div>
