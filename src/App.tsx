@@ -16,7 +16,11 @@ function PrivateRoute({ children }: { children: React.ReactNode }) {
   const { session, loading } = useAuth();
   
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    );
   }
   
   if (!session) {
@@ -40,6 +44,8 @@ function AuthenticatedApp() {
           </PrivateRoute>
         }
       />
+      {/* Catch all route - redirect to home */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
