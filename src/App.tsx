@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import ForgotPassword from "./pages/ForgotPassword";
 import { useAuth } from "./contexts/AuthContext";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ function AuthenticatedApp() {
       <Route path="/" element={<Index />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route
         path="/dashboard"
         element={

@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { LineChart, TrendingUp, Wallet } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="relative min-h-screen flex items-center">
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-background z-0" />
@@ -16,10 +19,19 @@ export const Hero = () => {
               Monitor and manage your investments across trading bots, real estate, and cryptocurrency with our advanced portfolio management platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-secondary hover:bg-secondary/90">
+              <Button 
+                size="lg" 
+                className="bg-secondary hover:bg-secondary/90"
+                onClick={() => navigate('/signup')}
+              >
                 Start Investing Now
               </Button>
-              <Button size="lg" variant="outline" className="text-primary-foreground border-primary-foreground/20">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-primary-foreground border-primary-foreground/20"
+                onClick={() => window.open('https://www.youtube.com/watch?v=demo', '_blank')}
+              >
                 Watch Demo
               </Button>
             </div>

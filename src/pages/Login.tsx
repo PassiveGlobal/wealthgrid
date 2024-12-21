@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { AuthLayout } from "@/components/AuthLayout";
 import { Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
@@ -13,7 +12,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -66,20 +64,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="remember"
-              checked={rememberMe}
-              onCheckedChange={(checked) => setRememberMe(checked as boolean)}
-            />
-            <label
-              htmlFor="remember"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              Remember me
-            </label>
-          </div>
+        <div className="flex justify-end">
           <Link
             to="/forgot-password"
             className="text-sm font-medium text-secondary hover:text-secondary/80"
