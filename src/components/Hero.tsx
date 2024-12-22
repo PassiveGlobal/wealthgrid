@@ -32,7 +32,7 @@ export const Hero = () => {
                 className="text-primary-foreground border-primary-foreground/20"
                 onClick={() => window.open('https://www.youtube.com/watch?v=demo', '_blank')}
               >
-                Watch Demo
+                Book a Demo
               </Button>
             </div>
           </div>
