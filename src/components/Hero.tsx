@@ -46,13 +46,13 @@ export const Hero = () => {
               </div>
               <div className="bg-background/10 backdrop-blur p-6 rounded-2xl border border-primary-foreground/10 animate-float" style={{ animationDelay: "1s" }}>
                 <Wallet className="h-8 w-8 text-secondary mb-4" />
-                <h3 className="text-xl font-semibold text-primary-foreground mb-2">Real Estate</h3>
-                <p className="text-primary-foreground/70">Manage property investments effortlessly</p>
+                <h3 className="text-xl font-semibold text-primary-foreground mb-2">Alternative Assets</h3>
+                <p className="text-primary-foreground/70">Diversify with real estate, commodities & more</p>
               </div>
               <div className="bg-background/10 backdrop-blur p-6 rounded-2xl border border-primary-foreground/10 animate-float" style={{ animationDelay: "1.5s" }}>
                 <TrendingUp className="h-8 w-8 text-secondary mb-4" />
-                <h3 className="text-xl font-semibold text-primary-foreground mb-2">Crypto</h3>
-                <p className="text-primary-foreground/70">Track digital assets in real-time</p>
+                <h3 className="text-xl font-semibold text-primary-foreground mb-2">Crypto Custody</h3>
+                <p className="text-primary-foreground/70">Secure storage & management of digital assets</p>
               </div>
             </div>
           </div>
