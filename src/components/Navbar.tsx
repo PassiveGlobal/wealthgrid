@@ -23,7 +23,7 @@ export const Navbar = () => {
         <div className="flex items-center gap-8">
           <Link to="/" className="flex items-center gap-2 text-xl font-bold text-secondary">
             <ChartBar className="h-6 w-6" />
-            PassiveGlobal
+            WealthGrid
           </Link>
           {!session && (
             <div className="hidden md:flex gap-6">

@@ -10,10 +10,10 @@ export default function Privacy() {
           <h1 className="text-4xl font-bold">Privacy Policy</h1>
           <div className="prose prose-gray dark:prose-invert max-w-none">
             <p className="text-lg text-muted-foreground">Effective Date: {new Date().toLocaleDateString()}</p>
-            <p className="font-semibold">PassiveGlobal Inc.</p>
+            <p className="font-semibold">WealthGrid Inc.</p>
             
             <p className="mt-6">
-              PassiveGlobal Inc. is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you use our services. By using our platform, you agree to the terms outlined below.
+              WealthGrid Inc. is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you use our services. By using our platform, you agree to the terms outlined below.
             </p>
 
             <h2 className="text-2xl font-semibold mt-8">1. Information We Collect</h2>
@@ -57,12 +57,12 @@ export default function Privacy() {
             </ul>
 
             <h2 className="text-2xl font-semibold mt-8">7. International Users</h2>
-            <p>PassiveGlobal complies with international data protection laws, including GDPR and CCPA, where applicable.</p>
+            <p>WealthGrid complies with international data protection laws, including GDPR and CCPA, where applicable.</p>
 
             <h2 className="text-2xl font-semibold mt-8">8. Contact Us</h2>
             <p>For questions about this Privacy Policy, contact us at:</p>
             <ul className="list-none space-y-2">
-              <li>Email: <a href="mailto:support@passiveglobal.com" className="text-primary hover:underline">support@passiveglobal.com</a></li>
+              <li>Email: <a href="mailto:support@wealthgrid.com" className="text-primary hover:underline">support@wealthgrid.com</a></li>
               <li>Address: 2402 Twin Branches Ln, Conyers, GA 30013, USA</li>
             </ul>
           </div>

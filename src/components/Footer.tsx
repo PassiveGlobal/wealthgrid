@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">PassiveGlobal</h3>
+            <h3 className="text-lg font-semibold">WealthGrid</h3>
             <p className="text-sm text-primary-foreground/70">
               Your trusted partner in passive income generation and portfolio management.
             </p>
@@ -76,7 +76,7 @@ export const Footer = () => {
         
         <div className="mt-12 pt-8 border-t border-primary-foreground/10">
           <p className="text-center text-sm text-primary-foreground/70">
-            © {new Date().getFullYear()} PassiveGlobal. All rights reserved.
+            © {new Date().getFullYear()} WealthGrid. All rights reserved.
           </p>
         </div>
       </div>
