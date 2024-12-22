@@ -13,6 +13,8 @@ import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import CreditCard from "./pages/CreditCard";
 import Learn from "./pages/Learn";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import { useAuth } from "./contexts/AuthContext";
 
 const queryClient = new QueryClient();
@@ -46,6 +48,8 @@ function AuthenticatedApp() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/credit-card" element={<CreditCard />} />
       <Route path="/learn" element={<Learn />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/terms" element={<Terms />} />
       <Route
         path="/dashboard"
         element={
