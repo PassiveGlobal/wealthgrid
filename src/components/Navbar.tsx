@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChartBar, Lock, LogOut, CreditCard } from "lucide-react";
+import { ChartBar, Lock, LogOut, CreditCard, BookOpen } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
@@ -31,6 +31,12 @@ export const Navbar = () => {
                 <span className="flex items-center gap-2">
                   <CreditCard className="h-4 w-4" />
                   Credit Card
+                </span>
+              </Link>
+              <Link to="/learn" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+                <span className="flex items-center gap-2">
+                  <BookOpen className="h-4 w-4" />
+                  Learn
                 </span>
               </Link>
               <Link to="/testimonials" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
