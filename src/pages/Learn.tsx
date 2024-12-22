@@ -17,7 +17,6 @@ const LearnPage = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Investing Basics */}
           <div className="group bg-background/10 backdrop-blur p-8 rounded-2xl border border-primary-foreground/10 hover:border-secondary/50 transition-all duration-300">
             <BookOpen className="h-12 w-12 text-secondary mb-6" />
             <h3 className="text-2xl font-semibold text-primary-foreground mb-4">Investing Basics</h3>
@@ -29,7 +28,6 @@ const LearnPage = () => {
             </Button>
           </div>
 
-          {/* Market Analysis */}
           <div className="group bg-background/10 backdrop-blur p-8 rounded-2xl border border-primary-foreground/10 hover:border-secondary/50 transition-all duration-300">
             <TrendingUp className="h-12 w-12 text-secondary mb-6" />
             <h3 className="text-2xl font-semibold text-primary-foreground mb-4">Market Analysis</h3>
@@ -41,7 +39,6 @@ const LearnPage = () => {
             </Button>
           </div>
 
-          {/* Advanced Strategies */}
           <div className="group bg-background/10 backdrop-blur p-8 rounded-2xl border border-primary-foreground/10 hover:border-secondary/50 transition-all duration-300">
             <GraduationCap className="h-12 w-12 text-secondary mb-6" />
             <h3 className="text-2xl font-semibold text-primary-foreground mb-4">Advanced Strategies</h3>
@@ -62,6 +59,6 @@ const LearnPage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default LearnPage;

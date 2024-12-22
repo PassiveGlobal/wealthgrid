@@ -14,7 +14,7 @@ export default function CreditCard() {
               <span className="text-sm font-medium">Coming Soon</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
-              The PassiveGlobal<br />
+              The WealthGrid<br />
               <span className="text-secondary">Credit Card</span>
             </h1>
             <p className="text-lg text-primary-foreground/80 max-w-lg">
@@ -27,7 +27,7 @@ export default function CreditCard() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-primary-foreground">Investment Rewards</h3>
-                  <p className="text-primary-foreground/70">Earn 2% back when you invest through PassiveGlobal</p>
+                  <p className="text-primary-foreground/70">Earn 2% back when you invest through WealthGrid</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -53,7 +53,7 @@ export default function CreditCard() {
                     <CreditCardIcon className="h-12 w-12 text-white/90" />
                     <div className="mt-auto pt-20">
                       <p className="text-white/90 font-mono text-lg">**** **** **** ****</p>
-                      <p className="text-white/70 font-mono mt-2">PASSIVE GLOBAL</p>
+                      <p className="text-white/70 font-mono mt-2">WEALTH GRID</p>
                     </div>
                   </div>
                 </div>
