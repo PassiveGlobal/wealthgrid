@@ -13,7 +13,7 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-2xl font-bold text-secondary mb-2">
             <ChartBar className="h-8 w-8" />
-            PassiveGlobal
+            WealthGrid
           </div>
           <h2 className="text-2xl font-semibold text-primary-foreground">{title}</h2>
           <p className="text-muted-foreground mt-2">{subtitle}</p>

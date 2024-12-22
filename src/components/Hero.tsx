@@ -13,7 +13,7 @@ export const Hero = () => {
           <div className="space-y-8">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
               Invest Smarter with{" "}
-              <span className="text-secondary">PassiveGlobal</span>
+              <span className="text-secondary">WealthGrid</span>
             </h1>
             <p className="text-lg text-primary-foreground/80 max-w-lg">
               Monitor and manage your investments across trading bots, real estate, and cryptocurrency with our advanced portfolio management platform.
