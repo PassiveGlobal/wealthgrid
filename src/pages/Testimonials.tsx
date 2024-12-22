@@ -7,14 +7,14 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Investment Analyst",
-    content: "PassiveGlobal has transformed how I manage my investments. The platform is intuitive and the returns are consistent. Their alternative investment options have helped me diversify my portfolio effectively.",
+    content: "WealthGrid has transformed how I manage my investments. The platform is intuitive and the returns are consistent. Their alternative investment options have helped me diversify my portfolio effectively.",
     rating: 5,
     badge: "Verified Investor",
   },
   {
     name: "Michael Chen",
     role: "Tech Entrepreneur",
-    content: "I've tried many investment platforms, but PassiveGlobal stands out with its innovative approach and excellent customer service. The crypto custody solution gives me peace of mind.",
+    content: "I've tried many investment platforms, but WealthGrid stands out with its innovative approach and excellent customer service. The crypto custody solution gives me peace of mind.",
     rating: 5,
     badge: "Premium Member",
   },
@@ -28,7 +28,7 @@ const testimonials = [
   {
     name: "James Wilson",
     role: "Real Estate Developer",
-    content: "PassiveGlobal's alternative investment options have opened up new opportunities for my portfolio. Their platform makes it easy to track and manage diverse investments.",
+    content: "WealthGrid's alternative investment options have opened up new opportunities for my portfolio. Their platform makes it easy to track and manage diverse investments.",
     rating: 5,
     badge: "Property Expert",
   },
@@ -42,7 +42,7 @@ const testimonials = [
   {
     name: "David Martinez",
     role: "Small Business Owner",
-    content: "As someone new to investing, PassiveGlobal's educational resources and support team have been invaluable. The platform grows with you as you learn.",
+    content: "As someone new to investing, WealthGrid's educational resources and support team have been invaluable. The platform grows with you as you learn.",
     rating: 5,
     badge: "Growing Investor",
   },
@@ -61,7 +61,7 @@ const Testimonials = () => {
         >
           <h1 className="text-4xl font-bold mb-4">What Our Users Say</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Join thousands of satisfied investors who trust PassiveGlobal with their financial future
+            Join thousands of satisfied investors who trust WealthGrid with their financial future
           </p>
         </motion.div>
         
