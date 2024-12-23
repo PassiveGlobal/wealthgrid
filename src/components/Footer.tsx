@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Instagram, Mail, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
@@ -58,16 +58,13 @@ export const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Connect</h3>
             <div className="flex space-x-4">
-              <a href="https://twitter.com/passiveglobal" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-secondary transition-colors">
-                <Twitter className="h-5 w-5" />
+              <a href="https://instagram.com/wealthgridai" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-secondary transition-colors">
+                <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://linkedin.com/company/passiveglobal" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-secondary transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="https://github.com/passiveglobal" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-secondary transition-colors">
+              <a href="https://linkedin.com/company/105345127" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-secondary transition-colors">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="mailto:contact@passiveglobal.com" className="text-primary-foreground/70 hover:text-secondary transition-colors">
+              <a href="mailto:info@wealthgrid.ai" className="text-primary-foreground/70 hover:text-secondary transition-colors">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
