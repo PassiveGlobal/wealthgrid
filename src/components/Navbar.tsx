@@ -21,13 +21,15 @@ export const Navbar = () => {
     <nav className="fixed w-full z-50 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link to="/" className="flex items-center gap-3 text-xl font-bold text-secondary">
-            <img 
-              src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
-              alt="WealthGrid Logo" 
-              className="h-8 w-8 object-contain"
-            />
-            <span className="text-2xl">WealthGrid</span>
+          <Link to="/" className="inline-flex items-center gap-3">
+            <div className="flex items-center">
+              <img 
+                src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
+                alt="WealthGrid Logo" 
+                className="h-7 w-7 object-contain"
+              />
+            </div>
+            <span className="text-2xl font-bold text-secondary leading-none">WealthGrid</span>
           </Link>
           <div className="hidden md:flex gap-6">
             <Link to="/credit-card" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
