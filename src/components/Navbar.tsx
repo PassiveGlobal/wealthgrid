@@ -22,14 +22,14 @@ export const Navbar = () => {
       <div className="container flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6 sm:gap-8">
           <Link to="/" className="inline-flex items-center">
-            <div className="flex items-center justify-center translate-y-[4.5px]">
+            <div className="flex items-center justify-center translate-y-[5px]">
               <img 
                 src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
                 alt="WealthGrid Logo" 
                 className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
               />
             </div>
-            <span className="text-2xl sm:text-3xl font-bold text-secondary translate-y-[1px]">WealthGrid</span>
+            <span className="text-2xl sm:text-3xl font-bold text-secondary translate-y-[1.5px] -ml-1">WealthGrid</span>
           </Link>
           <div className="hidden md:flex gap-6">
             <Link to="/credit-card" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
