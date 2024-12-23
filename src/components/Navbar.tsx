@@ -22,7 +22,7 @@ export const Navbar = () => {
       <div className="container flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6 sm:gap-8">
           <Link to="/" className="inline-flex items-center gap-4">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center translate-y-[2px]">
               <img 
                 src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
                 alt="WealthGrid Logo" 

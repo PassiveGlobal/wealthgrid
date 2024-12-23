@@ -10,7 +10,7 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <div className="inline-flex items-center justify-center gap-4 mb-6">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center translate-y-[2px]">
               <img 
                 src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
                 alt="WealthGrid Logo" 
