@@ -1,5 +1,4 @@
 import { ChartBar } from "lucide-react";
-import { Link } from "react-router-dom";
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -12,13 +11,10 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
     <div className="min-h-screen bg-primary flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
-          <Link to="/" className="inline-block mb-4">
-            <img 
-              src="/lovable-uploads/5e8d3882-cf06-4ee9-823b-334647048889.png" 
-              alt="WealthGrid Logo" 
-              className="h-24 mx-auto"
-            />
-          </Link>
+          <div className="flex items-center justify-center gap-2 text-2xl font-bold text-secondary mb-2">
+            <ChartBar className="h-8 w-8" />
+            WealthGrid
+          </div>
           <h2 className="text-2xl font-semibold text-primary-foreground">{title}</h2>
           <p className="text-muted-foreground mt-2">{subtitle}</p>
         </div>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Lock, LogOut, CreditCard, BookOpen } from "lucide-react";
+import { ChartBar, Lock, LogOut, CreditCard, BookOpen } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
@@ -21,12 +21,9 @@ export const Navbar = () => {
     <nav className="fixed w-full z-50 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link to="/" className="flex items-center gap-2">
-            <img 
-              src="/lovable-uploads/5e8d3882-cf06-4ee9-823b-334647048889.png" 
-              alt="WealthGrid Logo" 
-              className="h-8"
-            />
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold text-secondary">
+            <ChartBar className="h-6 w-6" />
+            WealthGrid
           </Link>
           {!session && (
             <div className="hidden md:flex gap-6">
