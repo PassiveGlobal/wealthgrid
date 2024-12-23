@@ -19,14 +19,14 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed w-full z-50 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/60">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
-          <Link to="/" className="inline-flex items-center gap-3">
-            <div className="flex items-center">
+          <Link to="/" className="inline-flex items-center gap-2.5">
+            <div className="flex items-center justify-center">
               <img 
                 src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
                 alt="WealthGrid Logo" 
-                className="h-7 w-7 object-contain"
+                className="h-8 w-8 object-contain"
               />
             </div>
             <span className="text-2xl font-bold text-secondary leading-none">WealthGrid</span>
@@ -52,7 +52,7 @@ export const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           {session ? (
             <>
               <Button 
@@ -73,7 +73,7 @@ export const Navbar = () => {
             <>
               <Button 
                 variant="ghost" 
-                className="text-primary-foreground"
+                className="text-primary-foreground hidden sm:inline-flex"
                 onClick={() => navigate('/login')}
               >
                 <Lock className="mr-2 h-4 w-4" /> Login
