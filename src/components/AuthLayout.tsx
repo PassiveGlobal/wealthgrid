@@ -13,7 +13,7 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
             <img 
               src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
               alt="WealthGrid Logo" 
-              className="h-14 w-14 my-auto"
+              className="h-28 w-28 my-auto"
             />
             WealthGrid
           </div>
