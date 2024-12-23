@@ -25,7 +25,7 @@ export const Navbar = () => {
             <img 
               src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
               alt="WealthGrid Logo" 
-              className="h-14 w-14"
+              className="h-8 w-8"
             />
             WealthGrid
           </Link>
