@@ -30,7 +30,7 @@ export const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="text-primary-foreground border-primary-foreground/20"
-                onClick={() => window.open('https://wealthgrid.com/book-demo', '_blank')}
+                onClick={() => window.open('https://wealthgrid.ai/book-demo', '_blank')}
               >
                 Book a Demo
               </Button>
