@@ -17,7 +17,7 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
                 className="h-14 w-14 object-contain"
               />
             </div>
-            <span className="text-3xl sm:text-4xl font-bold text-secondary">WealthGrid</span>
+            <span className="text-3xl sm:text-4xl font-bold text-secondary translate-y-[1px]">WealthGrid</span>
           </div>
           <h2 className="text-2xl font-semibold text-primary-foreground">{title}</h2>
           <p className="text-muted-foreground mt-2">{subtitle}</p>
