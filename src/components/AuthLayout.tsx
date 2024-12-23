@@ -1,5 +1,3 @@
-import { ChartBar } from "lucide-react";
-
 interface AuthLayoutProps {
   children: React.ReactNode;
   title: string;
@@ -12,7 +10,11 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-2xl font-bold text-secondary mb-2">
-            <ChartBar className="h-8 w-8" />
+            <img 
+              src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
+              alt="WealthGrid Logo" 
+              className="h-8 w-8"
+            />
             WealthGrid
           </div>
           <h2 className="text-2xl font-semibold text-primary-foreground">{title}</h2>
