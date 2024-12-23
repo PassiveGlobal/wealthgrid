@@ -25,32 +25,30 @@ export const Navbar = () => {
             <img 
               src="/lovable-uploads/76018a70-b6aa-43af-b17a-be7fced00833.png" 
               alt="WealthGrid Logo" 
-              className="h-10 w-10"
+              className="h-14 w-14"
             />
             WealthGrid
           </Link>
-          {!session && (
-            <div className="hidden md:flex gap-6">
-              <Link to="/credit-card" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
-                <span className="flex items-center gap-2">
-                  <CreditCard className="h-4 w-4" />
-                  Credit Card
-                </span>
-              </Link>
-              <Link to="/learn" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
-                <span className="flex items-center gap-2">
-                  <BookOpen className="h-4 w-4" />
-                  Learn
-                </span>
-              </Link>
-              <Link to="/testimonials" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
-                Testimonials
-              </Link>
-              <Link to="/contact" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
-                Contact
-              </Link>
-            </div>
-          )}
+          <div className="hidden md:flex gap-6">
+            <Link to="/credit-card" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+              <span className="flex items-center gap-2">
+                <CreditCard className="h-4 w-4" />
+                Credit Card
+              </span>
+            </Link>
+            <Link to="/learn" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+              <span className="flex items-center gap-2">
+                <BookOpen className="h-4 w-4" />
+                Learn
+              </span>
+            </Link>
+            <Link to="/testimonials" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+              Testimonials
+            </Link>
+            <Link to="/contact" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+              Contact
+            </Link>
+          </div>
         </div>
         <div className="flex items-center gap-4">
           {session ? (
