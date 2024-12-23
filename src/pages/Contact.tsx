@@ -52,17 +52,29 @@ const Contact = () => {
             <div className="flex flex-col items-center p-6 bg-primary/5 rounded-lg">
               <Mail className="w-8 h-8 text-secondary mb-4" />
               <h3 className="font-semibold mb-2">Email</h3>
-              <p className="text-muted-foreground text-center">support@passiveglobal.com</p>
+              <a 
+                href="mailto:info@wealthgrid.ai" 
+                className="text-muted-foreground hover:text-secondary transition-colors"
+              >
+                info@wealthgrid.ai
+              </a>
             </div>
             <div className="flex flex-col items-center p-6 bg-primary/5 rounded-lg">
               <Phone className="w-8 h-8 text-secondary mb-4" />
               <h3 className="font-semibold mb-2">Phone</h3>
-              <p className="text-muted-foreground text-center">+1 (555) 123-4567</p>
+              <a 
+                href="tel:+13104985204" 
+                className="text-muted-foreground hover:text-secondary transition-colors"
+              >
+                (310) 498-5204
+              </a>
             </div>
             <div className="flex flex-col items-center p-6 bg-primary/5 rounded-lg">
               <MapPin className="w-8 h-8 text-secondary mb-4" />
               <h3 className="font-semibold mb-2">Address</h3>
-              <p className="text-muted-foreground text-center">123 Investment St.<br />New York, NY 10001</p>
+              <p className="text-muted-foreground text-center">
+                57 W 57th Street<br />New York, NY
+              </p>
             </div>
           </div>
 
