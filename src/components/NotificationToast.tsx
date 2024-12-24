@@ -1,6 +1,11 @@
 import { useEffect } from "react"
 import { useToast } from "@/components/ui/use-toast"
 import { supabase } from "@/integrations/supabase/client"
+import { Database } from "@/integrations/supabase/types"
+
+type TransactionPayload = {
+  new: Database["public"]["Tables"]["transactions"]["Row"]
+}
 
 export function NotificationToast() {
   const { toast } = useToast()
@@ -15,8 +20,8 @@ export function NotificationToast() {
           schema: 'public',
           table: 'transactions'
         },
-        (payload) => {
-          const { new: newData } = payload
+        (payload: TransactionPayload) => {
+          const newData = payload.new
           if (newData.status === 'completed') {
             toast({
               title: "Deposit Successful",
