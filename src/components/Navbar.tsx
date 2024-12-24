@@ -3,6 +3,7 @@ import { Lock, LogOut, CreditCard, BookOpen } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/60">
+    <nav className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="container flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6 sm:gap-8">
           <Link to="/" className="inline-flex items-center">
@@ -32,32 +33,33 @@ export const Navbar = () => {
             <span className="text-2xl sm:text-3xl font-bold text-secondary translate-y-[1.5px] -ml-1">WealthGrid</span>
           </Link>
           <div className="hidden md:flex gap-6">
-            <Link to="/credit-card" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+            <Link to="/credit-card" className="text-sm font-medium text-foreground hover:text-secondary transition-colors">
               <span className="flex items-center gap-2">
                 <CreditCard className="h-4 w-4" />
                 Credit Card
               </span>
             </Link>
-            <Link to="/learn" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+            <Link to="/learn" className="text-sm font-medium text-foreground hover:text-secondary transition-colors">
               <span className="flex items-center gap-2">
                 <BookOpen className="h-4 w-4" />
                 Learn
               </span>
             </Link>
-            <Link to="/testimonials" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+            <Link to="/testimonials" className="text-sm font-medium text-foreground hover:text-secondary transition-colors">
               Testimonials
             </Link>
-            <Link to="/contact" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+            <Link to="/contact" className="text-sm font-medium text-foreground hover:text-secondary transition-colors">
               Contact
             </Link>
           </div>
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
+          <ThemeToggle />
           {session ? (
             <>
               <Button 
                 variant="ghost" 
-                className="text-primary-foreground"
+                className="text-foreground"
                 onClick={handleSignOut}
               >
                 <LogOut className="mr-2 h-4 w-4" /> Sign Out
@@ -73,7 +75,7 @@ export const Navbar = () => {
             <>
               <Button 
                 variant="ghost" 
-                className="text-primary-foreground hidden sm:inline-flex"
+                className="text-foreground hidden sm:inline-flex"
                 onClick={() => navigate('/login')}
               >
                 <Lock className="mr-2 h-4 w-4" /> Login
@@ -90,4 +92,4 @@ export const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
