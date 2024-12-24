@@ -9,6 +9,47 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      bank_accounts: {
+        Row: {
+          account_mask: string
+          account_type: string
+          bank_name: string
+          created_at: string
+          id: string
+          plaid_access_token: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          account_mask: string
+          account_type: string
+          bank_name: string
+          created_at?: string
+          id?: string
+          plaid_access_token: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          account_mask?: string
+          account_type?: string
+          bank_name?: string
+          created_at?: string
+          id?: string
+          plaid_access_token?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bank_accounts_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       notifications: {
         Row: {
           created_at: string
@@ -124,41 +165,57 @@ export type Database = {
       transactions: {
         Row: {
           amount: number
+          bank_account_id: string | null
           created_at: string
           currency: string
           id: string
           metadata: Json | null
           payment_method: string
+          plaid_transaction_id: string | null
           status: string
+          stripe_payment_intent_id: string | null
           type: string
           updated_at: string
           user_id: string
         }
         Insert: {
           amount: number
+          bank_account_id?: string | null
           created_at?: string
           currency: string
           id?: string
           metadata?: Json | null
           payment_method: string
+          plaid_transaction_id?: string | null
           status: string
+          stripe_payment_intent_id?: string | null
           type: string
           updated_at?: string
           user_id: string
         }
         Update: {
           amount?: number
+          bank_account_id?: string | null
           created_at?: string
           currency?: string
           id?: string
           metadata?: Json | null
           payment_method?: string
+          plaid_transaction_id?: string | null
           status?: string
+          stripe_payment_intent_id?: string | null
           type?: string
           updated_at?: string
           user_id?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "transactions_bank_account_id_fkey"
+            columns: ["bank_account_id"]
+            isOneToOne: false
+            referencedRelation: "bank_accounts"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "transactions_user_id_fkey"
             columns: ["user_id"]
@@ -176,7 +233,8 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      transaction_status: "pending" | "completed" | "failed" | "cancelled"
+      transaction_type: "deposit" | "withdrawal" | "transfer"
     }
     CompositeTypes: {
       [_ in never]: never
