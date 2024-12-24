@@ -20,12 +20,16 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { ConnectBankAccount } from "@/components/ConnectBankAccount"
-import { useToast } from "@/components/ui/use-toast"
+import { toast } from "sonner"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Loader2 } from "lucide-react"
 
 const depositFormSchema = z.object({
-  amount: z.coerce.number().min(1, "Amount must be greater than 0"),
+  amount: z.coerce
+    .number()
+    .min(1, "Amount must be greater than 0")
+    .max(1000000, "Amount cannot exceed $1,000,000"),
   bank_account_id: z.string().uuid("Please select a bank account"),
 })
 
@@ -33,9 +37,8 @@ type DepositFormValues = z.infer<typeof depositFormSchema>
 
 export function DepositForm() {
   const [isLoading, setIsLoading] = useState(false)
-  const { toast } = useToast()
 
-  const { data: bankAccounts } = useQuery({
+  const { data: bankAccounts, isLoading: isBankAccountsLoading } = useQuery({
     queryKey: ['bankAccounts'],
     queryFn: async () => {
       const { data, error } = await supabase
@@ -70,89 +73,101 @@ export function DepositForm() {
 
       if (error) throw error
 
-      toast({
-        title: "Deposit initiated",
+      toast.success("Deposit initiated", {
         description: "Your deposit is being processed. You'll be notified once it's complete.",
       })
 
       form.reset()
     } catch (error) {
       console.error('Error:', error)
-      toast({
-        title: "Error",
-        description: "Failed to initiate deposit. Please try again.",
-        variant: "destructive",
+      toast.error("Failed to initiate deposit", {
+        description: "Please try again or contact support if the issue persists.",
       })
     } finally {
       setIsLoading(false)
     }
   }
 
+  if (isBankAccountsLoading) {
+    return (
+      <div className="flex items-center justify-center p-8">
+        <Loader2 className="h-6 w-6 animate-spin text-primary" />
+      </div>
+    )
+  }
+
+  if (!bankAccounts?.length) {
+    return (
+      <div className="text-center space-y-4 p-8 border rounded-lg bg-muted/10">
+        <p className="text-muted-foreground">
+          Connect a bank account to make deposits
+        </p>
+        <ConnectBankAccount />
+      </div>
+    )
+  }
+
   return (
-    <div className="space-y-6">
-      {!bankAccounts?.length ? (
-        <div className="text-center space-y-4">
-          <p className="text-muted-foreground">
-            Connect a bank account to make deposits
-          </p>
-          <ConnectBankAccount />
-        </div>
-      ) : (
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              control={form.control}
-              name="bank_account_id"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Bank Account</FormLabel>
-                  <Select 
-                    onValueChange={field.onChange} 
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a bank account" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {bankAccounts.map((account) => (
-                        <SelectItem key={account.id} value={account.id}>
-                          {account.bank_name} (*{account.account_mask})
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="amount"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Amount (USD)</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter amount"
-                      type="number"
-                      step="0.01"
-                      min="0"
-                      {...field}
-                      onChange={(e) => field.onChange(e.target.valueAsNumber)}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" disabled={isLoading}>
-              {isLoading ? "Processing..." : "Deposit Funds"}
-            </Button>
-          </form>
-        </Form>
-      )}
-    </div>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <FormField
+          control={form.control}
+          name="bank_account_id"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Bank Account</FormLabel>
+              <Select 
+                onValueChange={field.onChange} 
+                defaultValue={field.value}
+              >
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a bank account" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {bankAccounts.map((account) => (
+                    <SelectItem key={account.id} value={account.id}>
+                      {account.bank_name} (*{account.account_mask})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="amount"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Amount (USD)</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter amount"
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  {...field}
+                  onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" disabled={isLoading} className="w-full">
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Processing...
+            </>
+          ) : (
+            "Deposit Funds"
+          )}
+        </Button>
+      </form>
+    </Form>
   )
 }
