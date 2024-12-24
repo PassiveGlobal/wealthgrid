@@ -47,30 +47,74 @@ export type Database = {
           },
         ]
       }
+      portfolio_history: {
+        Row: {
+          created_at: string
+          id: string
+          month: string
+          user_id: string
+          value: number
+          year: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          month: string
+          user_id: string
+          value: number
+          year: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          month?: string
+          user_id?: string
+          value?: number
+          year?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "portfolio_history_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
+          active_investments: number | null
           balance: number
           created_at: string
           full_name: string | null
           id: string
+          total_loss: number | null
+          total_profit: number | null
           two_factor_enabled: boolean | null
           updated_at: string
           withdrawal_pin: string | null
         }
         Insert: {
+          active_investments?: number | null
           balance?: number
           created_at?: string
           full_name?: string | null
           id: string
+          total_loss?: number | null
+          total_profit?: number | null
           two_factor_enabled?: boolean | null
           updated_at?: string
           withdrawal_pin?: string | null
         }
         Update: {
+          active_investments?: number | null
           balance?: number
           created_at?: string
           full_name?: string | null
           id?: string
+          total_loss?: number | null
+          total_profit?: number | null
           two_factor_enabled?: boolean | null
           updated_at?: string
           withdrawal_pin?: string | null
