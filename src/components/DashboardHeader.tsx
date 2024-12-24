@@ -1,60 +1,55 @@
 import { Card } from "@/components/ui/card";
-import { User, DollarSign, TrendingUp, CalendarDays } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
 export function DashboardHeader() {
+  const { data: profile } = useQuery({
+    queryKey: ['profile'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', (await supabase.auth.getUser()).data.user?.id)
+        .single();
+      
+      if (error) throw error;
+      return data;
+    },
+  });
+
   const stats = [
     {
       title: "Total Portfolio Value",
-      value: "$375,000",
-      change: "+12.5%",
-      icon: DollarSign,
+      value: profile ? `$${profile.balance.toLocaleString()}` : "$0",
+      change: "+5.2% this month",
+      changeColor: "text-green-600",
     },
     {
-      title: "Monthly Returns",
-      value: "$4,250",
-      change: "+5.2%",
-      icon: TrendingUp,
+      title: "Active Investments",
+      value: profile?.active_investments?.toString() || "0",
+      change: "+2 this month",
+      changeColor: "text-green-600",
     },
     {
-      title: "YTD Performance",
-      value: "$28,500",
-      change: "+15.8%",
-      icon: CalendarDays,
+      title: "New Deposits",
+      value: "$50,000",
+      change: "+12% vs last month",
+      changeColor: "text-green-600",
     },
   ];
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight">Welcome back, John</h1>
-          <p className="text-muted-foreground">
-            Here's what's happening with your investments today.
-          </p>
-        </div>
-        <button className="flex items-center gap-2 rounded-full bg-secondary p-2 text-secondary-foreground hover:bg-secondary/90">
-          <User className="h-6 w-6" />
-        </button>
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
       </div>
-
       <div className="grid gap-4 md:grid-cols-3">
         {stats.map((stat) => (
           <Card key={stat.title} className="p-6">
-            <div className="flex items-center gap-4">
-              <div className="rounded-lg bg-secondary/10 p-3">
-                <stat.icon className="h-6 w-6 text-secondary" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">
-                  {stat.title}
-                </p>
-                <div className="flex items-baseline gap-2">
-                  <h2 className="text-2xl font-bold">{stat.value}</h2>
-                  <span className="text-sm font-medium text-secondary">
-                    {stat.change}
-                  </span>
-                </div>
-              </div>
+            <div className="space-y-1">
+              <p className="text-sm text-muted-foreground">{stat.title}</p>
+              <p className="text-2xl font-bold">{stat.value}</p>
+              <p className={`text-sm ${stat.changeColor}`}>{stat.change}</p>
             </div>
           </Card>
         ))}
