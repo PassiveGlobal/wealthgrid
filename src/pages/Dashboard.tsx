@@ -1,8 +1,9 @@
-import { DashboardHeader } from "@/components/DashboardHeader";
-import { PortfolioOverview } from "@/components/PortfolioOverview";
-import { ProfitLossSummary } from "@/components/ProfitLossSummary";
-import { RecentActivity } from "@/components/RecentActivity";
-import { Navbar } from "@/components/Navbar";
+import { DashboardHeader } from "@/components/DashboardHeader"
+import { PortfolioOverview } from "@/components/PortfolioOverview"
+import { ProfitLossSummary } from "@/components/ProfitLossSummary"
+import { RecentActivity } from "@/components/RecentActivity"
+import { TransactionHistory } from "@/components/TransactionHistory"
+import { Navbar } from "@/components/Navbar"
 
 const Dashboard = () => {
   return (
@@ -19,9 +20,10 @@ const Dashboard = () => {
             <RecentActivity />
           </div>
         </div>
+        <TransactionHistory />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

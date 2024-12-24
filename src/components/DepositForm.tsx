@@ -25,7 +25,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 const depositFormSchema = z.object({
-  amount: z.string().min(1, "Amount is required").transform(Number),
+  amount: z.coerce.number().min(1, "Amount must be greater than 0"),
   bank_account_id: z.string().uuid("Please select a bank account"),
 })
 
@@ -49,7 +49,7 @@ export function DepositForm() {
   const form = useForm<DepositFormValues>({
     resolver: zodResolver(depositFormSchema),
     defaultValues: {
-      amount: "",
+      amount: 0,
       bank_account_id: "",
     },
   })
@@ -58,7 +58,7 @@ export function DepositForm() {
     try {
       setIsLoading(true)
       
-      const { data: sessionData, error } = await supabase.functions.invoke(
+      const { error } = await supabase.functions.invoke(
         'create-deposit-session',
         {
           body: { 
@@ -140,6 +140,7 @@ export function DepositForm() {
                       step="0.01"
                       min="0"
                       {...field}
+                      onChange={(e) => field.onChange(e.target.valueAsNumber)}
                     />
                   </FormControl>
                   <FormMessage />
