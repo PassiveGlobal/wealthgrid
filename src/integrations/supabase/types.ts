@@ -162,6 +162,62 @@ export type Database = {
         }
         Relationships: []
       }
+      strategies: {
+        Row: {
+          allocation_percentage: number
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          performance_metrics: Json | null
+          risk_level: string
+          status: string
+          stop_loss: number | null
+          target_profit: number | null
+          type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          allocation_percentage?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          performance_metrics?: Json | null
+          risk_level: string
+          status?: string
+          stop_loss?: number | null
+          target_profit?: number | null
+          type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          allocation_percentage?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          performance_metrics?: Json | null
+          risk_level?: string
+          status?: string
+          stop_loss?: number | null
+          target_profit?: number | null
+          type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "strategies_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       transactions: {
         Row: {
           amount: number
