@@ -9,7 +9,9 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       <NotificationToast />
       <div className="flex">
         <DashboardSidebar />
-        <main className="flex-1 p-8 pt-24">{children}</main>
+        <main className="flex-1 p-8 pt-24 max-w-7xl mx-auto w-full">
+          {children}
+        </main>
       </div>
     </div>
   );
