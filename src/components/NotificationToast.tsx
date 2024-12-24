@@ -24,7 +24,7 @@ export function NotificationToast() {
           table: 'transactions'
         },
         (payload: TransactionPayload) => {
-          const newData = payload.new
+          const newData = payload.new as Database["public"]["Tables"]["transactions"]["Row"]
           if (newData.status === 'completed') {
             toast({
               title: "Deposit Successful",
