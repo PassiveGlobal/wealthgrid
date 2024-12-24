@@ -17,6 +17,11 @@ import Learn from "./pages/Learn";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import { useAuth } from "./contexts/AuthContext";
+import { DashboardLayout } from "./components/DashboardLayout";
+import Agent from "./pages/Agent";
+import Deposit from "./pages/Deposit";
+import Strategies from "./pages/Strategies";
+import Notifications from "./pages/Notifications";
 
 const queryClient = new QueryClient();
 
@@ -55,11 +60,16 @@ function AuthenticatedApp() {
         path="/dashboard"
         element={
           <PrivateRoute>
-            <Dashboard />
+            <DashboardLayout />
           </PrivateRoute>
         }
-      />
-      {/* Catch all route - redirect to home */}
+      >
+        <Route index element={<Dashboard />} />
+        <Route path="agent" element={<Agent />} />
+        <Route path="deposit" element={<Deposit />} />
+        <Route path="strategies" element={<Strategies />} />
+        <Route path="notifications" element={<Notifications />} />
+      </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
