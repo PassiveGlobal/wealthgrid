@@ -64,7 +64,6 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       <Navbar />
       <div className="container mx-auto px-4 py-24">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="lg:hidden">
@@ -73,23 +72,11 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-72">
-              <div className="flex h-full flex-col gap-4 py-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">Menu</span>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setOpen(false)}
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                </div>
-                <nav className="flex flex-col gap-2">
-                  {menuItems.map((item) => (
-                    <MenuItem key={item.href} item={item} />
-                  ))}
-                </nav>
-              </div>
+              <nav className="flex flex-col gap-2 mt-4">
+                {menuItems.map((item) => (
+                  <MenuItem key={item.href} item={item} />
+                ))}
+              </nav>
             </SheetContent>
           </Sheet>
         </div>
