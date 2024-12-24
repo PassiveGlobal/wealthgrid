@@ -1,7 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Since we're using Lovable's Supabase integration, these values are automatically injected
-const supabaseUrl = 'https://xgzjwlbfuqjqvtqsembg.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhnemp3bGJmdXFqcXZ0cXNlbWJnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDc0ODg0MDAsImV4cCI6MjAyMzA2NDQwMH0.HfNtNyVk-xbc9DYuELh6YuTZZkXKZqQj_lm51JOXGjI';
+const supabaseUrl = 'https://whbqsangwovfavuwxzau.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoYnFzYW5nd292ZmF2dXd4emF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NzA4NDUsImV4cCI6MjA1MDM0Njg0NX0.Qf9if99MUzX7wUaW7beBnb17IjFvpVUcNvT1WmrsFww';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
