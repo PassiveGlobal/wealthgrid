@@ -2,10 +2,13 @@ import { useEffect } from "react"
 import { useToast } from "@/components/ui/use-toast"
 import { supabase } from "@/integrations/supabase/client"
 import { Database } from "@/integrations/supabase/types"
+import { RealtimePostgresChangesPayload } from "@supabase/supabase-js"
 
-type TransactionPayload = {
-  new: Database["public"]["Tables"]["transactions"]["Row"]
-}
+type TransactionPayload = RealtimePostgresChangesPayload<{
+  [key: string]: any;
+  old_record: Database["public"]["Tables"]["transactions"]["Row"];
+  record: Database["public"]["Tables"]["transactions"]["Row"];
+}>
 
 export function NotificationToast() {
   const { toast } = useToast()
