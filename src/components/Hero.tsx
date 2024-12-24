@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { LineChart, TrendingUp, Wallet, Brain } from "lucide-react";
+import { LineChart, TrendingUp, Wallet } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
@@ -53,11 +53,6 @@ export const Hero = () => {
                 <TrendingUp className="h-8 w-8 text-secondary mb-4" />
                 <h3 className="text-xl font-semibold text-primary-foreground mb-2">Crypto Custody</h3>
                 <p className="text-primary-foreground/70">Secure storage & management of digital assets</p>
-              </div>
-              <div className="bg-background/10 backdrop-blur p-6 rounded-2xl border border-primary-foreground/10 animate-float" style={{ animationDelay: "2s" }}>
-                <Brain className="h-8 w-8 text-secondary mb-4" />
-                <h3 className="text-xl font-semibold text-primary-foreground mb-2">RoverGrid AI</h3>
-                <p className="text-primary-foreground/70">Smart investment guidance powered by AI</p>
               </div>
             </div>
           </div>

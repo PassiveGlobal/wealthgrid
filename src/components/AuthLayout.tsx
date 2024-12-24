@@ -20,9 +20,9 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
             <span className="text-3xl sm:text-4xl font-bold text-secondary translate-y-[1.5px] -ml-1">WealthGrid</span>
           </div>
           <h2 className="text-2xl font-semibold text-primary-foreground">{title}</h2>
-          <p className="text-muted mt-2">{subtitle}</p>
+          <p className="text-muted-foreground mt-2">{subtitle}</p>
         </div>
-        <div className="bg-card backdrop-blur-lg rounded-lg p-6 shadow-xl border border-border">
+        <div className="bg-background/5 backdrop-blur-lg rounded-lg p-6 shadow-xl border border-border/50">
           {children}
         </div>
       </div>

@@ -9,9 +9,6 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
-import DepositsPage from "./pages/dashboard/DepositsPage";
-import StrategiesPage from "./pages/dashboard/StrategiesPage";
-import NotificationsPage from "./pages/dashboard/NotificationsPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
@@ -59,30 +56,6 @@ function AuthenticatedApp() {
         element={
           <PrivateRoute>
             <Dashboard />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/dashboard/deposits"
-        element={
-          <PrivateRoute>
-            <DepositsPage />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/dashboard/strategies"
-        element={
-          <PrivateRoute>
-            <StrategiesPage />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/dashboard/notifications"
-        element={
-          <PrivateRoute>
-            <NotificationsPage />
           </PrivateRoute>
         }
       />
