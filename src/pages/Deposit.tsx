@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { DepositForm } from "@/components/deposit/DepositForm";
 import { TransactionHistory } from "@/components/deposit/TransactionHistory";
+import { DepositStatus } from "@/components/deposit/DepositStatus";
 
 const Deposit = () => {
   return (
@@ -21,6 +22,8 @@ const Deposit = () => {
             Securely deposit funds into your WealthGrid account
           </p>
         </div>
+
+        <DepositStatus />
 
         <div className="grid gap-8 md:grid-cols-2">
           <Card>
