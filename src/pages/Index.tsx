@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
+import { RoverGrid } from "@/components/RoverGrid";
 import { ProtectionGuarantee } from "@/components/ProtectionGuarantee";
 import { Footer } from "@/components/Footer";
 import { useAuth } from "@/contexts/AuthContext";
@@ -16,6 +17,7 @@ export default function Index() {
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
       <Hero />
+      <RoverGrid />
       <ProtectionGuarantee />
       <Footer />
     </div>

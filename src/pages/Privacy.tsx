@@ -8,56 +8,62 @@ export default function Privacy() {
       <div className="container py-32 flex-grow">
         <div className="prose prose-invert mx-auto">
           <h1>Privacy Policy</h1>
-          <p>Effective Date: December 24, 2024</p>
-          <p>URL: https://wealthgrid.ai/privacy-policy</p>
+          <p>Effective Date: January 1, 2024</p>
+          <p>WealthGrid Inc.</p>
 
-          <h2>1. Introduction</h2>
           <p>
-            At WealthGrid, we prioritize the security and privacy of your data. This Privacy Policy outlines how we collect, use, and protect your information when you use our platform.
+            WealthGrid Inc. is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you use our services. By using our platform, you agree to the terms outlined below.
           </p>
 
-          <h2>2. Information We Collect</h2>
+          <h2>1. Information We Collect</h2>
           <ul>
-            <li>Personal Information: Name, email, address, phone number, financial data for transactions.</li>
-            <li>Usage Data: Data related to how you interact with our platform.</li>
-            <li>Financial Data: Information related to deposits, transactions, and investment tracking.</li>
+            <li>Personal Data: Name, email address, phone number, mailing address, date of birth, and identification documents for account verification.</li>
+            <li>Financial Data: Banking information, cryptocurrency wallet addresses, transaction details, and investment activity.</li>
+            <li>Usage Data: IP address, browser type, device information, and usage patterns.</li>
           </ul>
 
-          <h2>3. How We Use Your Information</h2>
-          <p>We use your data to:</p>
+          <h2>2. How We Use Your Information</h2>
           <ul>
-            <li>Provide financial services such as deposits and investment management.</li>
-            <li>Enhance platform functionality and personalize user recommendations through AI.</li>
-            <li>Comply with legal and regulatory requirements.</li>
+            <li>To provide and improve our services.</li>
+            <li>To process transactions, manage accounts, and offer investment insights.</li>
+            <li>To comply with legal obligations under Florida and federal regulations.</li>
+            <li>To communicate updates, offers, and promotions (with your consent).</li>
           </ul>
 
-          <h2>4. Data Sharing</h2>
+          <h2>3. Data Sharing</h2>
+          <p>We do not sell your information.</p>
+          <p>We may share data with:</p>
           <ul>
-            <li>We do not share your data with third parties unless required by law or for essential services such as payment processing (e.g., through Stripe).</li>
-            <li>No data is sold or shared for marketing purposes.</li>
+            <li>Service Providers: For payment processing and data analysis.</li>
+            <li>Regulatory Authorities: To comply with legal obligations.</li>
+            <li>Business Partners: For integration with financial and crypto platforms.</li>
           </ul>
 
-          <h2>5. Data Storage and Security</h2>
+          <h2>4. Data Retention</h2>
+          <p>Personal data is retained as long as you maintain an account or as required by law.</p>
+
+          <h2>5. Security</h2>
           <ul>
-            <li>Your data is stored securely in the US or UK, compliant with all local data protection laws.</li>
-            <li>We implement encryption and multi-layered security protocols to prevent unauthorized access.</li>
+            <li>Data is encrypted and secured using multi-layered protocols.</li>
+            <li>We implement two-factor authentication and 24/7 monitoring for account security.</li>
           </ul>
 
           <h2>6. Your Rights</h2>
-          <p>You have the right to:</p>
           <ul>
-            <li>Access your data.</li>
-            <li>Request data deletion.</li>
-            <li>Opt out of certain data collection practices.</li>
+            <li>Request access, correction, or deletion of your data.</li>
+            <li>Opt-out of promotional communications.</li>
+            <li>File a complaint with the Florida Department of Agriculture and Consumer Services or equivalent bodies.</li>
           </ul>
 
-          <h2>7. Contact Us</h2>
-          <p>
-            For questions about your data or this policy, contact us at{" "}
-            <a href="mailto:info@passive-global.com" className="text-primary hover:text-primary/80">
-              info@passive-global.com
-            </a>
-          </p>
+          <h2>7. International Users</h2>
+          <p>WealthGrid complies with international data protection laws, including GDPR and CCPA, where applicable.</p>
+
+          <h2>8. Contact Us</h2>
+          <p>For questions about this Privacy Policy, contact us at:</p>
+          <ul>
+            <li>Email: support@wealthgrid.com</li>
+            <li>Address: 2402 Twin Branches Ln, Conyers, GA 30013, USA</li>
+          </ul>
         </div>
       </div>
       <Footer />
