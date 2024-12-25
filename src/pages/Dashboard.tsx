@@ -6,7 +6,7 @@ import { RecentActivity } from "@/components/RecentActivity";
 import { PersonalizedInsights } from "@/components/PersonalizedInsights";
 import { GoalProgress } from "@/components/GoalProgress";
 import { AchievementBadges } from "@/components/AchievementBadges";
-import { QuickLearn } from "@/components/QuickLearn";
+import { DailyLearn } from "@/components/DailyLearn";
 
 const Dashboard = () => {
   return (
@@ -34,7 +34,7 @@ const Dashboard = () => {
         {/* Achievements and Learning Section */}
         <div className="grid gap-8 md:grid-cols-2">
           <AchievementBadges />
-          <QuickLearn />
+          <DailyLearn />
         </div>
       </div>
     </DashboardLayout>
