@@ -9,6 +9,162 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      achievements: {
+        Row: {
+          description: string
+          earned_at: string
+          id: string
+          metadata: Json | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          description: string
+          earned_at?: string
+          id?: string
+          metadata?: Json | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          description?: string
+          earned_at?: string
+          id?: string
+          metadata?: Json | null
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "achievements_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ai_recommendations: {
+        Row: {
+          acted_at: string | null
+          created_at: string
+          description: string
+          expires_at: string | null
+          id: string
+          recommendation_data: Json | null
+          status: string | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          acted_at?: string | null
+          created_at?: string
+          description: string
+          expires_at?: string | null
+          id?: string
+          recommendation_data?: Json | null
+          status?: string | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          acted_at?: string | null
+          created_at?: string
+          description?: string
+          expires_at?: string | null
+          id?: string
+          recommendation_data?: Json | null
+          status?: string | null
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_recommendations_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      bank_accounts: {
+        Row: {
+          account_mask: string
+          account_type: string
+          bank_name: string
+          created_at: string
+          id: string
+          plaid_access_token: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          account_mask: string
+          account_type: string
+          bank_name: string
+          created_at?: string
+          id?: string
+          plaid_access_token: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          account_mask?: string
+          account_type?: string
+          bank_name?: string
+          created_at?: string
+          id?: string
+          plaid_access_token?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bank_accounts_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      education_resources: {
+        Row: {
+          category: string
+          content: string
+          created_at: string
+          description: string
+          difficulty_level: string
+          id: string
+          title: string
+        }
+        Insert: {
+          category: string
+          content: string
+          created_at?: string
+          description: string
+          difficulty_level: string
+          id?: string
+          title: string
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string
+          description?: string
+          difficulty_level?: string
+          id?: string
+          title?: string
+        }
+        Relationships: []
+      }
       notifications: {
         Row: {
           created_at: string
@@ -89,6 +245,8 @@ export type Database = {
           created_at: string
           full_name: string | null
           id: string
+          investment_goals: Json | null
+          risk_tolerance: string | null
           total_loss: number | null
           total_profit: number | null
           two_factor_enabled: boolean | null
@@ -101,6 +259,8 @@ export type Database = {
           created_at?: string
           full_name?: string | null
           id: string
+          investment_goals?: Json | null
+          risk_tolerance?: string | null
           total_loss?: number | null
           total_profit?: number | null
           two_factor_enabled?: boolean | null
@@ -113,6 +273,8 @@ export type Database = {
           created_at?: string
           full_name?: string | null
           id?: string
+          investment_goals?: Json | null
+          risk_tolerance?: string | null
           total_loss?: number | null
           total_profit?: number | null
           two_factor_enabled?: boolean | null
@@ -121,44 +283,122 @@ export type Database = {
         }
         Relationships: []
       }
+      strategies: {
+        Row: {
+          allocation_percentage: number
+          auto_execute: boolean | null
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          performance_metrics: Json | null
+          risk_level: string
+          status: string
+          stop_loss: number | null
+          target_profit: number | null
+          trigger_conditions: Json | null
+          type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          allocation_percentage?: number
+          auto_execute?: boolean | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          performance_metrics?: Json | null
+          risk_level: string
+          status?: string
+          stop_loss?: number | null
+          target_profit?: number | null
+          trigger_conditions?: Json | null
+          type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          allocation_percentage?: number
+          auto_execute?: boolean | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          performance_metrics?: Json | null
+          risk_level?: string
+          status?: string
+          stop_loss?: number | null
+          target_profit?: number | null
+          trigger_conditions?: Json | null
+          type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "strategies_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       transactions: {
         Row: {
           amount: number
+          bank_account_id: string | null
           created_at: string
           currency: string
           id: string
           metadata: Json | null
           payment_method: string
+          plaid_transaction_id: string | null
           status: string
+          stripe_payment_intent_id: string | null
           type: string
           updated_at: string
           user_id: string
         }
         Insert: {
           amount: number
+          bank_account_id?: string | null
           created_at?: string
           currency: string
           id?: string
           metadata?: Json | null
           payment_method: string
+          plaid_transaction_id?: string | null
           status: string
+          stripe_payment_intent_id?: string | null
           type: string
           updated_at?: string
           user_id: string
         }
         Update: {
           amount?: number
+          bank_account_id?: string | null
           created_at?: string
           currency?: string
           id?: string
           metadata?: Json | null
           payment_method?: string
+          plaid_transaction_id?: string | null
           status?: string
+          stripe_payment_intent_id?: string | null
           type?: string
           updated_at?: string
           user_id?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "transactions_bank_account_id_fkey"
+            columns: ["bank_account_id"]
+            isOneToOne: false
+            referencedRelation: "bank_accounts"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "transactions_user_id_fkey"
             columns: ["user_id"]
@@ -176,7 +416,8 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      transaction_status: "pending" | "completed" | "failed" | "cancelled"
+      transaction_type: "deposit" | "withdrawal" | "transfer"
     }
     CompositeTypes: {
       [_ in never]: never
