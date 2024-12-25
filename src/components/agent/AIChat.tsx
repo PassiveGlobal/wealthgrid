@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Bot, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Message {
   role: 'user' | 'assistant';
@@ -32,20 +33,44 @@ export function AIChat() {
     setIsLoading(true);
 
     try {
-      // Simulate AI response - In production, this would call your AI endpoint
-      setTimeout(() => {
-        setMessages(prev => [...prev, {
-          role: 'assistant',
-          content: "Based on current market trends, I recommend considering gold allocation due to increasing market volatility. Would you like me to analyze specific investment opportunities?"
-        }]);
-        setIsLoading(false);
-      }, 1000);
+      const { data, error } = await supabase.functions.invoke('ai-chat', {
+        body: {
+          messages: [...messages, newMessage].map(({ role, content }) => ({
+            role,
+            content
+          }))
+        }
+      });
+
+      if (error) throw error;
+
+      const assistantMessage = {
+        role: 'assistant' as const,
+        content: data.choices[0].message.content
+      };
+
+      setMessages(prev => [...prev, assistantMessage]);
+
+      // Store the interaction in the database
+      await supabase.from('ai_recommendations').insert({
+        user_id: (await supabase.auth.getUser()).data.user?.id,
+        type: 'chat_interaction',
+        title: 'AI Chat Interaction',
+        description: message,
+        recommendation_data: {
+          user_message: message,
+          ai_response: assistantMessage.content
+        }
+      });
+
     } catch (error) {
+      console.error('Error:', error);
       toast({
         title: "Error",
         description: "Failed to get AI response. Please try again.",
         variant: "destructive",
       });
+    } finally {
       setIsLoading(false);
     }
   };
