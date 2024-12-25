@@ -9,20 +9,21 @@ export const Hero = () => {
     <div className="relative min-h-screen">
       <div className="absolute inset-0 bg-[#1A1F2C]" />
       <div className="container relative z-10 py-32">
+        {/* Hero Section with Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Hero Content */}
           <div className="space-y-8">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight text-left">
               Invest Smarter with{" "}
               <span className="text-[#10B981]">WealthGrid</span>
             </h1>
-            <p className="text-lg text-gray-300 max-w-xl">
+            <p className="text-lg text-gray-300 max-w-xl text-left">
               Monitor and manage your investments across trading bots, real estate, and cryptocurrency with our advanced portfolio management platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-[#10B981] hover:bg-[#10B981]/90 text-white"
+                className="bg-[#10B981] hover:bg-[#10B981]/90 text-white transform transition-all duration-300 hover:scale-105"
                 onClick={() => navigate('/signup')}
               >
                 Start Investing Now
@@ -30,7 +31,7 @@ export const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-gray-600 text-white hover:bg-gray-800"
+                className="border-gray-600 text-white hover:bg-gray-800 transform transition-all duration-300 hover:scale-105"
                 onClick={() => window.open('https://wealthgrid.ai/book-demo', '_blank')}
               >
                 Book a Demo
@@ -38,24 +39,24 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Feature Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="group bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 hover:translate-y-[-4px]">
+          {/* Right Column - Feature Grid with Floating Animation */}
+          <div className="grid grid-cols-2 gap-6">
+            <div className="group bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 animate-float hover:translate-y-[-4px] hover:shadow-lg hover:shadow-[#10B981]/20">
               <LineChart className="h-8 w-8 text-[#10B981] mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Trading Bots</h3>
               <p className="text-gray-400">Automated strategies for consistent returns</p>
             </div>
-            <div className="group bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 hover:translate-y-[-4px]">
+            <div className="group bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 animate-float hover:translate-y-[-4px] hover:shadow-lg hover:shadow-[#10B981]/20" style={{ animationDelay: "0.2s" }}>
               <Wallet className="h-8 w-8 text-[#10B981] mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Alternative Assets</h3>
               <p className="text-gray-400">Diversify with real estate, commodities & more</p>
             </div>
-            <div className="group bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 hover:translate-y-[-4px]">
+            <div className="group bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 animate-float hover:translate-y-[-4px] hover:shadow-lg hover:shadow-[#10B981]/20" style={{ animationDelay: "0.4s" }}>
               <TrendingUp className="h-8 w-8 text-[#10B981] mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Crypto Custody</h3>
               <p className="text-gray-400">Secure storage & management of digital assets</p>
             </div>
-            <div className="group bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 hover:translate-y-[-4px]">
+            <div className="group bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 animate-float hover:translate-y-[-4px] hover:shadow-lg hover:shadow-[#10B981]/20" style={{ animationDelay: "0.6s" }}>
               <Brain className="h-8 w-8 text-[#10B981] mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">RoverGrid AI</h3>
               <p className="text-gray-400">Smart investment guidance powered by AI</p>
@@ -72,17 +73,17 @@ export const Hero = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300">
+            <div className="bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg hover:shadow-[#10B981]/20">
               <Brain className="h-8 w-8 text-[#10B981] mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Analyze</h3>
               <p className="text-gray-400">RoverGrid analyzes your account balance, risk tolerance, and financial goals in real-time.</p>
             </div>
-            <div className="bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300">
+            <div className="bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg hover:shadow-[#10B981]/20">
               <Wallet className="h-8 w-8 text-[#10B981] mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Recommend</h3>
               <p className="text-gray-400">It provides tailored investment opportunities across trading bots, crypto, real estate, and alternative assets.</p>
             </div>
-            <div className="bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300">
+            <div className="bg-[#222832]/50 backdrop-blur p-6 rounded-2xl border border-gray-800 hover:border-[#10B981]/50 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg hover:shadow-[#10B981]/20">
               <LineChart className="h-8 w-8 text-[#10B981] mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Optimize</h3>
               <p className="text-gray-400">It helps balance your portfolio for maximum growth while managing risks effectively.</p>
@@ -118,7 +119,7 @@ export const Hero = () => {
             <div className="mt-8 text-center">
               <Button 
                 size="lg" 
-                className="bg-[#10B981] hover:bg-[#10B981]/90 text-white"
+                className="bg-[#10B981] hover:bg-[#10B981]/90 text-white transform transition-all duration-300 hover:scale-105"
                 onClick={() => navigate('/signup')}
               >
                 Get Started with RoverGrid
