@@ -24,7 +24,7 @@ export const HeroHeader = () => {
         <Button 
           size="lg" 
           variant="outline" 
-          className="border-gray-600 text-white hover:bg-gray-800/50 text-lg px-8 py-6"
+          className="border-[#2A3040] text-white hover:bg-[#1E2537]/50 text-lg px-8 py-6"
           onClick={() => window.open('https://wealthgrid.ai/book-demo', '_blank')}
         >
           Book a Demo
