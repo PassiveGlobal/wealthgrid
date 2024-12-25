@@ -8,12 +8,18 @@ const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY') || '', {
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+};
+
 serve(async (req) => {
   try {
     const signature = req.headers.get('stripe-signature');
     const webhookSecret = Deno.env.get('STRIPE_WEBHOOK_SECRET');
     
     if (!signature || !webhookSecret) {
+      console.error('Missing signature or webhook secret');
       return new Response('Missing signature or webhook secret', { status: 400 });
     }
 
@@ -31,6 +37,8 @@ serve(async (req) => {
       const session = event.data.object;
       const userId = session.metadata?.user_id;
       const amount = session.amount_total ? session.amount_total / 100 : 0;
+
+      console.log('Processing successful payment for user:', userId);
 
       // Update transaction status
       const { error: transactionError } = await supabase
@@ -80,7 +88,7 @@ serve(async (req) => {
           <p>Thank you for choosing WealthGrid!</p>
         `;
 
-        await fetch('https://api.resend.com/emails', {
+        const emailResponse = await fetch('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -93,17 +101,23 @@ serve(async (req) => {
             html: emailHtml
           })
         });
+
+        if (!emailResponse.ok) {
+          console.error('Error sending email:', await emailResponse.text());
+        }
       }
+
+      console.log('Successfully processed payment and sent receipt');
     }
 
     return new Response(JSON.stringify({ received: true }), {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 200
     });
   } catch (error) {
     console.error('Webhook error:', error);
     return new Response(JSON.stringify({ error: error.message }), {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 400
     });
   }
