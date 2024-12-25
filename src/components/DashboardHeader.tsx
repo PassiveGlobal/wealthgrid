@@ -1,20 +1,34 @@
 import { Card } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 
 export function DashboardHeader() {
+  const { session } = useAuth();
+
   const { data: profile } = useQuery({
     queryKey: ['profile'],
     queryFn: async () => {
+      if (!session?.user?.id) {
+        console.log('No session user ID available');
+        return null;
+      }
+
       const { data, error } = await supabase
         .from('profiles')
         .select('*')
-        .eq('id', (await supabase.auth.getUser()).data.user?.id)
+        .eq('id', session.user.id)
         .single();
       
-      if (error) throw error;
+      if (error) {
+        console.error('Profile fetch error:', error);
+        throw error;
+      }
+      
+      console.log('Profile data:', data);
       return data;
     },
+    enabled: !!session?.user?.id,
   });
 
   const stats = [
