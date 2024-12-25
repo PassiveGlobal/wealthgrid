@@ -18,7 +18,16 @@ serve(async (req) => {
 
     const openAIApiKey = Deno.env.get('OPENAI_API_KEY');
     if (!openAIApiKey) {
-      throw new Error('OpenAI API key is not configured');
+      console.error('OpenAI API key is not configured');
+      return new Response(
+        JSON.stringify({ 
+          error: 'OpenAI API key is not configured',
+          details: 'Please configure the OpenAI API key in the Supabase dashboard'
+        }), {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
 
     console.log('Making request to OpenAI...');
@@ -55,22 +64,16 @@ serve(async (req) => {
         errorMessage = responseText;
       }
 
-      // Check specifically for quota exceeded error
-      if (errorMessage.includes('quota')) {
-        console.error('OpenAI quota exceeded:', errorMessage);
-        return new Response(
-          JSON.stringify({ 
-            error: 'quota_exceeded',
-            message: 'The AI service is temporarily unavailable due to high demand. Please try again later or contact support.'
-          }), {
-            status: 429,
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-          }
-        );
-      }
-
       console.error('OpenAI API error:', response.status, errorMessage);
-      throw new Error(`OpenAI API error: ${response.status} ${errorMessage}`);
+      return new Response(
+        JSON.stringify({ 
+          error: `OpenAI API error: ${response.status} ${errorMessage}`,
+          details: errorMessage
+        }), {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
 
     // Parse the successful response
@@ -79,7 +82,15 @@ serve(async (req) => {
 
     if (!data.choices?.[0]?.message?.content) {
       console.error('Invalid response format from OpenAI:', data);
-      throw new Error('Invalid response format from OpenAI');
+      return new Response(
+        JSON.stringify({ 
+          error: 'Invalid response format from OpenAI',
+          details: 'The API response did not contain the expected data structure'
+        }), {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
 
     return new Response(JSON.stringify({
