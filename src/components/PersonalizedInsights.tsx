@@ -3,6 +3,20 @@ import { Brain, TrendingUp, AlertTriangle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
+interface RecommendationData {
+  trend?: 'up' | 'down';
+  confidence?: number;
+  timeframe?: string;
+}
+
+interface Insight {
+  id: string;
+  title: string;
+  description: string;
+  recommendation_data: RecommendationData;
+  created_at: string;
+}
+
 export function PersonalizedInsights() {
   const { data: insights } = useQuery({
     queryKey: ['ai-insights'],
@@ -15,7 +29,7 @@ export function PersonalizedInsights() {
         .limit(3);
       
       if (error) throw error;
-      return data || [];
+      return data as Insight[];
     },
   });
 
