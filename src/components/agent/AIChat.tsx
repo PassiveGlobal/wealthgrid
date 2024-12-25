@@ -33,6 +33,11 @@ export function AIChat() {
     setIsLoading(true);
 
     try {
+      // First check if user is authenticated
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      if (authError) throw authError;
+      if (!user) throw new Error('Please log in to use the AI chat');
+
       console.log('Sending messages to AI chat function:', [...messages, newMessage]);
       const { data, error } = await supabase.functions.invoke('ai-chat', {
         body: {
@@ -44,10 +49,13 @@ export function AIChat() {
       });
 
       console.log('AI chat response:', data);
-      console.log('AI chat error:', error);
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw error;
+      }
 
-      if (error) throw error;
       if (!data?.choices?.[0]?.message?.content) {
+        console.error('Invalid response format:', data);
         throw new Error('Invalid response format from AI');
       }
 
@@ -59,13 +67,8 @@ export function AIChat() {
       setMessages(prev => [...prev, assistantMessage]);
 
       // Store the interaction in the database
-      const user = await supabase.auth.getUser();
-      if (!user.data.user?.id) {
-        throw new Error('User not authenticated');
-      }
-
-      await supabase.from('ai_recommendations').insert({
-        user_id: user.data.user.id,
+      const { error: dbError } = await supabase.from('ai_recommendations').insert({
+        user_id: user.id,
         type: 'chat_interaction',
         title: 'AI Chat Interaction',
         description: message,
@@ -75,6 +78,16 @@ export function AIChat() {
         }
       });
 
+      if (dbError) {
+        console.error('Database error:', dbError);
+        // Don't throw here as the chat message was successful
+        toast({
+          title: "Warning",
+          description: "Chat message received but couldn't save to history.",
+          variant: "destructive",
+        });
+      }
+
     } catch (error) {
       console.error('Error in AI chat:', error);
       toast({
@@ -82,6 +95,8 @@ export function AIChat() {
         description: error instanceof Error ? error.message : "Failed to get AI response. Please try again.",
         variant: "destructive",
       });
+      // Remove the user message if we couldn't get a response
+      setMessages(prev => prev.slice(0, -1));
     } finally {
       setIsLoading(false);
     }
