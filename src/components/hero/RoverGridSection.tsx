@@ -1,4 +1,4 @@
-import { Brain, LineChart, TrendingUp, Wallet } from "lucide-react";
+import { Brain, LineChart, Wallet } from "lucide-react";
 
 export const RoverGridSection = () => {
   return (
