@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Bot, Wallet, LineChart, Bell } from "lucide-react";
+import { Menu, X, Bot, Wallet, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Navbar } from "@/components/Navbar";
@@ -18,12 +18,6 @@ const menuItems = [
     icon: Wallet,
     href: "/dashboard/deposit",
     description: "Manage your deposits"
-  },
-  {
-    title: "Strategies",
-    icon: LineChart,
-    href: "/dashboard/strategies",
-    description: "Investment strategies"
   },
   {
     title: "Notifications",

@@ -11,7 +11,6 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Agent from "./pages/Agent";
 import Deposit from "./pages/Deposit";
-import Strategies from "./pages/Strategies";
 import Notifications from "./pages/Notifications";
 import ForgotPassword from "./pages/ForgotPassword";
 import Testimonials from "./pages/Testimonials";
@@ -76,14 +75,6 @@ function AuthenticatedApp() {
         element={
           <PrivateRoute>
             <Deposit />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/dashboard/strategies"
-        element={
-          <PrivateRoute>
-            <Strategies />
           </PrivateRoute>
         }
       />
