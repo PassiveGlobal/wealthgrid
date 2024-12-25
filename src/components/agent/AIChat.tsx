@@ -49,8 +49,18 @@ export function AIChat() {
       });
 
       console.log('AI chat response:', data);
+      
       if (error) {
         console.error('Supabase function error:', error);
+        // Check for quota exceeded error
+        if (error.message?.includes('quota') || (data?.error === 'quota_exceeded')) {
+          toast({
+            title: "AI Service Unavailable",
+            description: "Our AI service is temporarily unavailable due to high demand. Please try again later or contact support.",
+            variant: "destructive",
+          });
+          return;
+        }
         throw error;
       }
 
