@@ -13,11 +13,11 @@ export const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Hero Content */}
           <div className="space-y-8">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight text-left">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
               Invest Smarter with{" "}
               <span className="text-[#10B981]">WealthGrid</span>
             </h1>
-            <p className="text-lg text-gray-300 max-w-xl text-left">
+            <p className="text-lg text-gray-300 max-w-xl">
               Monitor and manage your investments across trading bots, real estate, and cryptocurrency with our advanced portfolio management platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
