@@ -1,81 +1,39 @@
 import { DashboardLayout } from "@/components/DashboardLayout";
-import { Card } from "@/components/ui/card";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
-import { useEffect } from "react";
-import { Bell, TrendingUp, TrendingDown, Wallet, ChartBar } from "lucide-react";
+import { NotificationsList } from "@/components/notifications/NotificationsList";
+import { NotificationFilters } from "@/components/notifications/NotificationFilters";
+import { NotificationPreferences } from "@/components/notifications/NotificationPreferences";
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Notifications = () => {
+  const { session } = useAuth();
   const { toast } = useToast();
-  const { data: notifications } = useQuery({
-    queryKey: ['notifications'],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from('notifications')
-        .select('*')
-        .order('created_at', { ascending: false });
-      
-      if (error) throw error;
-      return data || [];
-    },
-  });
 
-  // Set up real-time updates for notifications
-  useEffect(() => {
-    const channel = supabase
-      .channel('notifications-changes')
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: 'notifications'
-        },
-        (payload) => {
-          if (payload.eventType === 'INSERT') {
-            toast({
-              title: payload.new.title,
-              description: payload.new.message,
-            });
-          }
-        }
-      )
-      .subscribe();
+  const handleMarkAllAsRead = async () => {
+    if (!session?.user?.id) return;
 
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [toast]);
+    const { error } = await supabase
+      .from('notifications')
+      .update({ read: true })
+      .eq('user_id', session.user.id)
+      .eq('read', false);
 
-  const getNotificationIcon = (type: string) => {
-    switch (type) {
-      case 'market_trend':
-        return TrendingUp;
-      case 'ai_recommendation':
-        return ChartBar;
-      case 'transaction':
-        return Wallet;
-      case 'performance':
-        return TrendingDown;
-      default:
-        return Bell;
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to mark notifications as read",
+      });
+      return;
     }
-  };
 
-  const getNotificationColor = (type: string) => {
-    switch (type) {
-      case 'market_trend':
-        return 'text-green-500';
-      case 'ai_recommendation':
-        return 'text-blue-500';
-      case 'transaction':
-        return 'text-yellow-500';
-      case 'performance':
-        return 'text-purple-500';
-      default:
-        return 'text-gray-500';
-    }
+    toast({
+      title: "Success",
+      description: "All notifications marked as read",
+    });
   };
 
   return (
@@ -83,38 +41,21 @@ const Notifications = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Notifications</h2>
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex items-center gap-2"
+              onClick={handleMarkAllAsRead}
+            >
+              <Check className="h-4 w-4" />
+              Mark all as read
+            </Button>
+            <NotificationPreferences />
+          </div>
         </div>
-        <div className="space-y-4">
-          {notifications?.map((notification) => {
-            const Icon = getNotificationIcon(notification.type);
-            const iconColor = getNotificationColor(notification.type);
-            
-            return (
-              <Card key={notification.id} className="p-4">
-                <div className="flex items-start gap-4">
-                  <div className={`${iconColor} p-2 rounded-full bg-gray-100`}>
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div className="flex-1 space-y-1">
-                    <h3 className="font-medium">{notification.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {notification.message}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {new Date(notification.created_at).toLocaleDateString()}
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            );
-          })}
-          {(!notifications || notifications.length === 0) && (
-            <Card className="p-6 text-center text-muted-foreground">
-              <Bell className="mx-auto h-8 w-8 mb-2" />
-              <p>No notifications yet</p>
-            </Card>
-          )}
-        </div>
+        <NotificationFilters />
+        <NotificationsList />
       </div>
     </DashboardLayout>
   );
