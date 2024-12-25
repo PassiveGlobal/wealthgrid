@@ -15,7 +15,7 @@ export const Hero = () => {
           <div className="space-y-8">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
               Invest Smarter with{" "}
-              <span className="text-[#10B981]">WealthGrid</span>
+              <span className="bg-gradient-to-r from-[#9b87f5] to-[#6E59A5] text-transparent bg-clip-text">WealthGrid</span>
             </h1>
             <p className="text-lg text-gray-300 max-w-xl">
               Monitor and manage your investments across trading bots, real estate, and cryptocurrency with our advanced portfolio management platform.
@@ -23,7 +23,7 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-[#10B981] hover:bg-[#10B981]/90 text-white text-lg px-8 py-6"
+                className="bg-gradient-to-r from-[#9b87f5] to-[#6E59A5] hover:opacity-90 text-white text-lg px-8 py-6"
                 onClick={() => navigate('/signup')}
               >
                 Start Investing Now
@@ -31,7 +31,7 @@ export const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-gray-600 text-white hover:bg-gray-800 text-lg px-8 py-6"
+                className="border-gray-600 text-white hover:bg-gray-800/50 text-lg px-8 py-6"
                 onClick={() => window.open('https://wealthgrid.ai/book-demo', '_blank')}
               >
                 Book a Demo
@@ -41,24 +41,24 @@ export const Hero = () => {
 
           {/* Right Column - Feature Grid */}
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-              <LineChart className="h-8 w-8 text-[#10B981] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2">Trading Bots</h3>
+            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group animate-float">
+              <LineChart className="h-8 w-8 text-[#9b87f5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Trading Bots</h3>
               <p className="text-gray-400">Automated strategies for consistent returns</p>
             </div>
-            <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-              <Wallet className="h-8 w-8 text-[#10B981] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2">Alternative Assets</h3>
+            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group animate-float delay-100">
+              <Wallet className="h-8 w-8 text-[#9b87f5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Alternative Assets</h3>
               <p className="text-gray-400">Diversify with real estate, commodities & more</p>
             </div>
-            <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-              <TrendingUp className="h-8 w-8 text-[#10B981] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2">Crypto Custody</h3>
+            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group animate-float delay-200">
+              <TrendingUp className="h-8 w-8 text-[#9b87f5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Crypto Custody</h3>
               <p className="text-gray-400">Secure storage & management of digital assets</p>
             </div>
-            <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-              <Brain className="h-8 w-8 text-[#10B981] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2">RoverGrid AI</h3>
+            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group animate-float delay-300">
+              <Brain className="h-8 w-8 text-[#9b87f5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">RoverGrid AI</h3>
               <p className="text-gray-400">Smart investment guidance powered by AI</p>
             </div>
           </div>
@@ -69,47 +69,47 @@ export const Hero = () => {
           <div className="text-center space-y-4">
             <h2 className="text-4xl font-bold text-white">RoverGrid AI Assistant</h2>
             <p className="text-xl text-gray-300">Your Personalized Investment Guide</p>
-            <p className="text-[#10B981] italic">"Guided by AI. Empowered by Intelligence."</p>
+            <p className="text-[#9b87f5] italic">"Guided by AI. Empowered by Intelligence."</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-              <Brain className="h-8 w-8 text-[#10B981] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2">Analyze</h3>
+            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
+              <Brain className="h-8 w-8 text-[#9b87f5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Analyze</h3>
               <p className="text-gray-400">RoverGrid analyzes your account balance, risk tolerance, and financial goals in real-time.</p>
             </div>
-            <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-              <Wallet className="h-8 w-8 text-[#10B981] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2">Recommend</h3>
+            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
+              <Wallet className="h-8 w-8 text-[#9b87f5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Recommend</h3>
               <p className="text-gray-400">It provides tailored investment opportunities across trading bots, crypto, real estate, and alternative assets.</p>
             </div>
-            <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-              <LineChart className="h-8 w-8 text-[#10B981] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2">Optimize</h3>
+            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
+              <LineChart className="h-8 w-8 text-[#9b87f5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Optimize</h3>
               <p className="text-gray-400">It helps balance your portfolio for maximum growth while managing risks effectively.</p>
             </div>
           </div>
 
           {/* Why Choose RoverGrid Section */}
-          <div className="bg-[#1E2330]/80 backdrop-blur p-8 rounded-2xl border border-gray-800">
+          <div className="bg-[#221F26]/80 backdrop-blur p-8 rounded-2xl border border-[#403E43]">
             <h3 className="text-3xl font-bold text-white mb-8">Why Choose RoverGrid?</h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <TrendingUp className="h-6 w-6 text-[#10B981] shrink-0" />
+                <TrendingUp className="h-6 w-6 text-[#9b87f5] shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold text-white">Real-Time Insights</h4>
                   <p className="text-gray-400">Stay ahead with up-to-date recommendations powered by cutting-edge AI.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Wallet className="h-6 w-6 text-[#10B981] shrink-0" />
+                <Wallet className="h-6 w-6 text-[#9b87f5] shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold text-white">Personalized Strategy</h4>
                   <p className="text-gray-400">Tailored investment suggestions based on your unique financial profile.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <LineChart className="h-6 w-6 text-[#10B981] shrink-0" />
+                <LineChart className="h-6 w-6 text-[#9b87f5] shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold text-white">Smart Growth</h4>
                   <p className="text-gray-400">Unlock the potential of intelligent investing with AI.</p>
@@ -119,7 +119,7 @@ export const Hero = () => {
             <div className="mt-8 text-center">
               <Button 
                 size="lg" 
-                className="bg-[#10B981] hover:bg-[#10B981]/90 text-white text-lg px-8 py-6"
+                className="bg-gradient-to-r from-[#9b87f5] to-[#6E59A5] hover:opacity-90 text-white text-lg px-8 py-6"
                 onClick={() => navigate('/signup')}
               >
                 Get Started with RoverGrid
@@ -137,19 +137,19 @@ export const Hero = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-                <Shield className="h-8 w-8 text-[#10B981] mb-4" />
-                <h3 className="text-2xl font-semibold text-white mb-2">Asset Protection</h3>
+              <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
+                <Shield className="h-8 w-8 text-[#9b87f5] mb-4" />
+                <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Asset Protection</h3>
                 <p className="text-gray-400">Your investments are secured with military-grade encryption and multi-layer protection protocols.</p>
               </div>
-              <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-                <Lock className="h-8 w-8 text-[#10B981] mb-4" />
-                <h3 className="text-2xl font-semibold text-white mb-2">Secure Authentication</h3>
+              <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
+                <Lock className="h-8 w-8 text-[#9b87f5] mb-4" />
+                <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Secure Authentication</h3>
                 <p className="text-gray-400">Two-factor authentication and biometric security features keep your account safe from unauthorized access.</p>
               </div>
-              <div className="bg-[#1E2330]/80 backdrop-blur p-6 rounded-2xl border border-gray-800">
-                <Clock className="h-8 w-8 text-[#10B981] mb-4" />
-                <h3 className="text-2xl font-semibold text-white mb-2">24/7 Monitoring</h3>
+              <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
+                <Clock className="h-8 w-8 text-[#9b87f5] mb-4" />
+                <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">24/7 Monitoring</h3>
                 <p className="text-gray-400">Our advanced systems continuously monitor your investments and detect any suspicious activities.</p>
               </div>
             </div>
