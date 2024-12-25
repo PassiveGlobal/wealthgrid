@@ -20,57 +20,97 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Get initial session
-    supabase.auth.getSession().then(({ data: { session: initialSession } }) => {
-      console.log('Initial session:', initialSession);
-      setSession(initialSession);
-      setLoading(false);
-    });
+    const initializeAuth = async () => {
+      try {
+        const { data: { session: initialSession }, error } = await supabase.auth.getSession();
+        
+        if (error) {
+          console.error('Session initialization error:', error);
+          setSession(null);
+        } else {
+          console.log('Initial session:', initialSession);
+          setSession(initialSession);
+        }
+      } catch (error) {
+        console.error('Auth initialization error:', error);
+        setSession(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    initializeAuth();
 
     // Listen for auth changes
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, currentSession) => {
-      console.log('Auth state changed:', _event, currentSession);
-      setSession(currentSession);
+    } = supabase.auth.onAuthStateChange(async (event, currentSession) => {
+      console.log('Auth state changed:', event, currentSession);
+      
+      if (event === 'TOKEN_REFRESHED') {
+        console.log('Token refreshed successfully');
+      }
+      
+      if (event === 'SIGNED_OUT') {
+        console.log('User signed out');
+        setSession(null);
+        navigate('/');
+      } else {
+        setSession(currentSession);
+      }
+      
       setLoading(false);
     });
 
-    return () => subscription.unsubscribe();
-  }, []);
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [navigate]);
 
   const signIn = async (email: string, password: string) => {
-    const { error, data } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-    if (error) {
+      if (error) {
+        console.error('Sign in error:', error);
+        throw error;
+      }
+
+      console.log('Sign in successful:', data);
+      setSession(data.session);
+      navigate("/dashboard");
+    } catch (error) {
       console.error('Sign in error:', error);
       throw error;
     }
-
-    console.log('Sign in successful:', data);
-    navigate("/dashboard");
   };
 
   const signUp = async (email: string, password: string, fullName: string) => {
-    const { error, data } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          full_name: fullName,
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: fullName,
+          },
         },
-      },
-    });
+      });
 
-    if (error) {
+      if (error) {
+        console.error('Sign up error:', error);
+        throw error;
+      }
+
+      console.log('Sign up successful:', data);
+      navigate("/login");
+    } catch (error) {
       console.error('Sign up error:', error);
       throw error;
     }
-
-    console.log('Sign up successful:', data);
-    navigate("/login");
   };
 
   const signOut = async () => {
@@ -80,8 +120,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         console.error('Sign out error:', error);
         throw error;
       }
+      
       console.log('Sign out successful');
       setSession(null);
+      
+      // Clear any persisted session data
+      localStorage.removeItem('supabase.auth.token');
+      sessionStorage.removeItem('supabase.auth.token');
+      
       navigate("/");
     } catch (error) {
       console.error('Sign out error:', error);
