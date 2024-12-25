@@ -58,7 +58,7 @@ export const PersonalizedInsights = () => {
         ? `Your portfolio is up ${profile.total_profit}% this month`
         : "Start investing to track your performance",
       action: "View Details",
-      variant: profile.total_profit > 0 ? "default" as const : "secondary" as const,
+      variant: profile.total_profit > 0 ? "default" as const : "default" as const,
     },
     {
       icon: Shield,
