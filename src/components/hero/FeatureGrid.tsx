@@ -1,10 +1,13 @@
-import { Brain, LineChart, TrendingUp, Wallet } from "lucide-react";
+import { LineChart, Wallet, TrendingUp, Brain } from "lucide-react";
 
 export const FeatureGrid = () => {
   return (
-    <div className="relative">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a2436] via-[#1E2537] to-[#1E2537]/20 rounded-3xl blur-xl" />
+    <div className="relative p-1">
+      {/* Gradient Background with Blur */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-[#1a2436] to-[#1E2537] rounded-3xl opacity-50 blur-xl"
+        style={{ transform: 'scale(1.05)' }}
+      />
       
       {/* Grid Content */}
       <div className="relative grid grid-cols-2 gap-6">
