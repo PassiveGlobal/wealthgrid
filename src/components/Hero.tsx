@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Brain, LineChart, TrendingUp, Wallet, Shield, Clock, Lock } from "lucide-react";
+import { Brain, LineChart, TrendingUp, Wallet } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
@@ -8,22 +8,22 @@ export const Hero = () => {
   return (
     <div className="relative min-h-screen">
       <div className="absolute inset-0 bg-[#1A1F2C]" />
-      <div className="container relative z-10 py-32 space-y-32">
+      <div className="container relative z-10 py-32">
         {/* Hero Section with Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Hero Content */}
           <div className="space-y-8">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
               Invest Smarter with{" "}
-              <span className="bg-gradient-to-r from-[#9b87f5] to-[#6E59A5] text-transparent bg-clip-text">WealthGrid</span>
+              <span className="text-[#4FD1C5]">WealthGrid</span>
             </h1>
-            <p className="text-lg text-gray-300 max-w-xl">
+            <p className="text-lg text-gray-400 max-w-xl">
               Monitor and manage your investments across trading bots, real estate, and cryptocurrency with our advanced portfolio management platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-[#9b87f5] to-[#6E59A5] hover:opacity-90 text-white text-lg px-8 py-6"
+                className="bg-[#4FD1C5] hover:bg-[#45B8AE] text-white text-lg px-8 py-6"
                 onClick={() => navigate('/signup')}
               >
                 Start Investing Now
@@ -41,75 +41,75 @@ export const Hero = () => {
 
           {/* Right Column - Feature Grid */}
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group animate-float">
-              <LineChart className="h-8 w-8 text-[#9b87f5] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Trading Bots</h3>
+            <div className="bg-[#1E2330]/90 backdrop-blur p-6 rounded-2xl border border-[#2A2E3B] hover:border-[#4FD1C5] transition-colors group animate-float">
+              <LineChart className="h-8 w-8 text-[#4FD1C5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">Trading Bots</h3>
               <p className="text-gray-400">Automated strategies for consistent returns</p>
             </div>
-            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group animate-float delay-100">
-              <Wallet className="h-8 w-8 text-[#9b87f5] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Alternative Assets</h3>
+            <div className="bg-[#1E2330]/90 backdrop-blur p-6 rounded-2xl border border-[#2A2E3B] hover:border-[#4FD1C5] transition-colors group animate-float delay-100">
+              <Wallet className="h-8 w-8 text-[#4FD1C5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">Alternative Assets</h3>
               <p className="text-gray-400">Diversify with real estate, commodities & more</p>
             </div>
-            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group animate-float delay-200">
-              <TrendingUp className="h-8 w-8 text-[#9b87f5] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Crypto Custody</h3>
+            <div className="bg-[#1E2330]/90 backdrop-blur p-6 rounded-2xl border border-[#2A2E3B] hover:border-[#4FD1C5] transition-colors group animate-float delay-200">
+              <TrendingUp className="h-8 w-8 text-[#4FD1C5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">Crypto Custody</h3>
               <p className="text-gray-400">Secure storage & management of digital assets</p>
             </div>
-            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group animate-float delay-300">
-              <Brain className="h-8 w-8 text-[#9b87f5] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">RoverGrid AI</h3>
+            <div className="bg-[#1E2330]/90 backdrop-blur p-6 rounded-2xl border border-[#2A2E3B] hover:border-[#4FD1C5] transition-colors group animate-float delay-300">
+              <Brain className="h-8 w-8 text-[#4FD1C5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">RoverGrid AI</h3>
               <p className="text-gray-400">Smart investment guidance powered by AI</p>
             </div>
           </div>
         </div>
 
         {/* RoverGrid AI Assistant Section */}
-        <div className="space-y-16">
+        <div className="space-y-16 mt-32">
           <div className="text-center space-y-4">
             <h2 className="text-4xl font-bold text-white">RoverGrid AI Assistant</h2>
-            <p className="text-xl text-gray-300">Your Personalized Investment Guide</p>
-            <p className="text-[#9b87f5] italic">"Guided by AI. Empowered by Intelligence."</p>
+            <p className="text-xl text-gray-400">Your Personalized Investment Guide</p>
+            <p className="text-[#4FD1C5] italic">"Guided by AI. Empowered by Intelligence."</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
-              <Brain className="h-8 w-8 text-[#9b87f5] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Analyze</h3>
+            <div className="bg-[#1E2330]/90 backdrop-blur p-6 rounded-2xl border border-[#2A2E3B] hover:border-[#4FD1C5] transition-colors group">
+              <Brain className="h-8 w-8 text-[#4FD1C5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">Analyze</h3>
               <p className="text-gray-400">RoverGrid analyzes your account balance, risk tolerance, and financial goals in real-time.</p>
             </div>
-            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
-              <Wallet className="h-8 w-8 text-[#9b87f5] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Recommend</h3>
+            <div className="bg-[#1E2330]/90 backdrop-blur p-6 rounded-2xl border border-[#2A2E3B] hover:border-[#4FD1C5] transition-colors group">
+              <Wallet className="h-8 w-8 text-[#4FD1C5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">Recommend</h3>
               <p className="text-gray-400">It provides tailored investment opportunities across trading bots, crypto, real estate, and alternative assets.</p>
             </div>
-            <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
-              <LineChart className="h-8 w-8 text-[#9b87f5] mb-4" />
-              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Optimize</h3>
+            <div className="bg-[#1E2330]/90 backdrop-blur p-6 rounded-2xl border border-[#2A2E3B] hover:border-[#4FD1C5] transition-colors group">
+              <LineChart className="h-8 w-8 text-[#4FD1C5] mb-4" />
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">Optimize</h3>
               <p className="text-gray-400">It helps balance your portfolio for maximum growth while managing risks effectively.</p>
             </div>
           </div>
 
           {/* Why Choose RoverGrid Section */}
-          <div className="bg-[#221F26]/80 backdrop-blur p-8 rounded-2xl border border-[#403E43]">
+          <div className="bg-[#1E2330]/90 backdrop-blur p-8 rounded-2xl border border-[#2A2E3B]">
             <h3 className="text-3xl font-bold text-white mb-8">Why Choose RoverGrid?</h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <TrendingUp className="h-6 w-6 text-[#9b87f5] shrink-0" />
+                <TrendingUp className="h-6 w-6 text-[#4FD1C5] shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold text-white">Real-Time Insights</h4>
                   <p className="text-gray-400">Stay ahead with up-to-date recommendations powered by cutting-edge AI.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Wallet className="h-6 w-6 text-[#9b87f5] shrink-0" />
+                <Wallet className="h-6 w-6 text-[#4FD1C5] shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold text-white">Personalized Strategy</h4>
                   <p className="text-gray-400">Tailored investment suggestions based on your unique financial profile.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <LineChart className="h-6 w-6 text-[#9b87f5] shrink-0" />
+                <LineChart className="h-6 w-6 text-[#4FD1C5] shrink-0" />
                 <div>
                   <h4 className="text-xl font-semibold text-white">Smart Growth</h4>
                   <p className="text-gray-400">Unlock the potential of intelligent investing with AI.</p>
@@ -119,39 +119,11 @@ export const Hero = () => {
             <div className="mt-8 text-center">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-[#9b87f5] to-[#6E59A5] hover:opacity-90 text-white text-lg px-8 py-6"
+                className="bg-[#4FD1C5] hover:bg-[#45B8AE] text-white text-lg px-8 py-6"
                 onClick={() => navigate('/signup')}
               >
                 Get Started with RoverGrid
               </Button>
-            </div>
-          </div>
-
-          {/* Your Investment, Our Priority Section */}
-          <div className="space-y-16">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-white">Your Investment, Our Priority</h2>
-              <p className="text-xl text-gray-300">
-                We implement industry-leading security measures to ensure your investments are protected around the clock.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
-                <Shield className="h-8 w-8 text-[#9b87f5] mb-4" />
-                <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Asset Protection</h3>
-                <p className="text-gray-400">Your investments are secured with military-grade encryption and multi-layer protection protocols.</p>
-              </div>
-              <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
-                <Lock className="h-8 w-8 text-[#9b87f5] mb-4" />
-                <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">Secure Authentication</h3>
-                <p className="text-gray-400">Two-factor authentication and biometric security features keep your account safe from unauthorized access.</p>
-              </div>
-              <div className="bg-[#221F26]/80 backdrop-blur p-6 rounded-2xl border border-[#403E43] hover:border-[#9b87f5] transition-colors group">
-                <Clock className="h-8 w-8 text-[#9b87f5] mb-4" />
-                <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#9b87f5] transition-colors">24/7 Monitoring</h3>
-                <p className="text-gray-400">Our advanced systems continuously monitor your investments and detect any suspicious activities.</p>
-              </div>
             </div>
           </div>
         </div>
