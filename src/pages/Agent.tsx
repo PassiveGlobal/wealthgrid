@@ -1,13 +1,27 @@
 import { DashboardLayout } from "@/components/DashboardLayout";
+import { AgentDashboard } from "@/components/agent/AgentDashboard";
+import { AIChat } from "@/components/agent/AIChat";
 
 const Agent = () => {
   return (
     <DashboardLayout>
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">AI Investment Assistant</h2>
-        <p className="text-muted-foreground">
-          Get personalized investment recommendations and insights from our AI.
-        </p>
+      <div className="space-y-8">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-bold">AI Investment Assistant</h2>
+            <p className="text-muted-foreground">
+              Get personalized investment recommendations and insights from our AI.
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-8 lg:grid-cols-3">
+          <div className="lg:col-span-2">
+            <AgentDashboard />
+          </div>
+          <div>
+            <AIChat />
+          </div>
+        </div>
       </div>
     </DashboardLayout>
   );
