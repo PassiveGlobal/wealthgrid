@@ -1,6 +1,9 @@
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { AgentDashboard } from "@/components/agent/AgentDashboard";
 import { AIChat } from "@/components/agent/AIChat";
+import { PersonalizedInsights } from "@/components/PersonalizedInsights";
+import { GoalProgress } from "@/components/GoalProgress";
+import { AchievementBadges } from "@/components/AchievementBadges";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
@@ -51,6 +54,13 @@ const Agent = () => {
           <div>
             <AIChat />
           </div>
+        </div>
+        <div className="grid gap-8 md:grid-cols-2">
+          <PersonalizedInsights />
+          <GoalProgress />
+        </div>
+        <div className="grid gap-8 md:grid-cols-2">
+          <AchievementBadges />
         </div>
       </div>
     </DashboardLayout>

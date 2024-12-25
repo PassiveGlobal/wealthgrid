@@ -9,6 +9,44 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      achievements: {
+        Row: {
+          description: string
+          earned_at: string
+          id: string
+          metadata: Json | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          description: string
+          earned_at?: string
+          id?: string
+          metadata?: Json | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          description?: string
+          earned_at?: string
+          id?: string
+          metadata?: Json | null
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "achievements_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ai_recommendations: {
         Row: {
           acted_at: string | null
@@ -97,6 +135,36 @@ export type Database = {
           },
         ]
       }
+      education_resources: {
+        Row: {
+          category: string
+          content: string
+          created_at: string
+          description: string
+          difficulty_level: string
+          id: string
+          title: string
+        }
+        Insert: {
+          category: string
+          content: string
+          created_at?: string
+          description: string
+          difficulty_level: string
+          id?: string
+          title: string
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string
+          description?: string
+          difficulty_level?: string
+          id?: string
+          title?: string
+        }
+        Relationships: []
+      }
       notifications: {
         Row: {
           created_at: string
@@ -177,6 +245,8 @@ export type Database = {
           created_at: string
           full_name: string | null
           id: string
+          investment_goals: Json | null
+          risk_tolerance: string | null
           total_loss: number | null
           total_profit: number | null
           two_factor_enabled: boolean | null
@@ -189,6 +259,8 @@ export type Database = {
           created_at?: string
           full_name?: string | null
           id: string
+          investment_goals?: Json | null
+          risk_tolerance?: string | null
           total_loss?: number | null
           total_profit?: number | null
           two_factor_enabled?: boolean | null
@@ -201,6 +273,8 @@ export type Database = {
           created_at?: string
           full_name?: string | null
           id?: string
+          investment_goals?: Json | null
+          risk_tolerance?: string | null
           total_loss?: number | null
           total_profit?: number | null
           two_factor_enabled?: boolean | null
