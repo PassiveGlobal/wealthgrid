@@ -18,7 +18,7 @@ export const DepositStatus = () => {
         .eq("type", "deposit")
         .order("created_at", { ascending: false })
         .limit(1)
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
       return data;
@@ -27,12 +27,14 @@ export const DepositStatus = () => {
   });
 
   useEffect(() => {
-    if (latestTransaction?.status === "completed") {
+    if (!latestTransaction) return;
+    
+    if (latestTransaction.status === "completed") {
       toast({
         title: "Deposit Successful",
         description: `Your deposit of $${latestTransaction.amount.toLocaleString()} has been processed successfully.`,
       });
-    } else if (latestTransaction?.status === "failed") {
+    } else if (latestTransaction.status === "failed") {
       toast({
         variant: "destructive",
         title: "Deposit Failed",
