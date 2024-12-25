@@ -9,6 +9,10 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import Agent from "./pages/Agent";
+import Deposit from "./pages/Deposit";
+import Notifications from "./pages/Notifications";
+import DashboardLearn from "./pages/DashboardLearn";
 import ForgotPassword from "./pages/ForgotPassword";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
@@ -59,7 +63,38 @@ function AuthenticatedApp() {
           </PrivateRoute>
         }
       />
-      {/* Catch all route - redirect to home */}
+      <Route
+        path="/dashboard/agent"
+        element={
+          <PrivateRoute>
+            <Agent />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/dashboard/deposit"
+        element={
+          <PrivateRoute>
+            <Deposit />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/dashboard/notifications"
+        element={
+          <PrivateRoute>
+            <Notifications />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/dashboard/learn"
+        element={
+          <PrivateRoute>
+            <DashboardLearn />
+          </PrivateRoute>
+        }
+      />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

@@ -1,33 +1,35 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { InfoIcon } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
-export function PortfolioOverview() {
-  const { data: portfolioHistory } = useQuery({
-    queryKey: ['portfolio-history'],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from('portfolio_history')
-        .select('*')
-        .eq('user_id', (await supabase.auth.getUser()).data.user?.id)
-        .order('created_at', { ascending: true });
-      
-      if (error) throw error;
-      return data || [];
-    },
-  });
+const simulatedData = [
+  { month: "July", value: 5000 },
+  { month: "August", value: 6200 },
+  { month: "September", value: 7100 },
+  { month: "October", value: 7800 },
+  { month: "November", value: 8900 },
+  { month: "December", value: 10000 },
+];
 
+export function PortfolioOverview() {
   return (
     <Card className="col-span-4">
       <CardHeader>
-        <CardTitle>Portfolio Growth Overview</CardTitle>
+        <CardTitle>Simulated Portfolio Growth</CardTitle>
       </CardHeader>
       <CardContent>
+        <Alert className="mb-6">
+          <InfoIcon className="h-4 w-4" />
+          <AlertDescription>
+            This is simulated data for demonstration purposes. Actual portfolio data will be displayed once investments are active.
+          </AlertDescription>
+        </Alert>
+        
         <div className="h-[400px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
-              data={portfolioHistory}
+              data={simulatedData}
               margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.2} />
@@ -44,6 +46,7 @@ export function PortfolioOverview() {
                 tickLine={false}
                 dx={-10}
                 tick={{ fill: '#6B7280' }}
+                domain={[4000, 11000]}
               />
               <Tooltip 
                 formatter={(value) => [`$${Number(value).toLocaleString()}`, "Portfolio Value"]}
@@ -62,7 +65,12 @@ export function PortfolioOverview() {
                 dataKey="value"
                 stroke="#10B981"
                 strokeWidth={3}
-                dot={false}
+                dot={{
+                  r: 4,
+                  fill: '#10B981',
+                  stroke: '#059669',
+                  strokeWidth: 2
+                }}
                 activeDot={{
                   r: 6,
                   fill: '#10B981',
