@@ -33,6 +33,7 @@ export function AIChat() {
     setIsLoading(true);
 
     try {
+      console.log('Sending messages to AI chat function:', [...messages, newMessage]);
       const { data, error } = await supabase.functions.invoke('ai-chat', {
         body: {
           messages: [...messages, newMessage].map(({ role, content }) => ({
@@ -42,7 +43,13 @@ export function AIChat() {
         }
       });
 
+      console.log('AI chat response:', data);
+      console.log('AI chat error:', error);
+
       if (error) throw error;
+      if (!data?.choices?.[0]?.message?.content) {
+        throw new Error('Invalid response format from AI');
+      }
 
       const assistantMessage = {
         role: 'assistant' as const,
@@ -52,8 +59,13 @@ export function AIChat() {
       setMessages(prev => [...prev, assistantMessage]);
 
       // Store the interaction in the database
+      const user = await supabase.auth.getUser();
+      if (!user.data.user?.id) {
+        throw new Error('User not authenticated');
+      }
+
       await supabase.from('ai_recommendations').insert({
-        user_id: (await supabase.auth.getUser()).data.user?.id,
+        user_id: user.data.user.id,
         type: 'chat_interaction',
         title: 'AI Chat Interaction',
         description: message,
@@ -64,10 +76,10 @@ export function AIChat() {
       });
 
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error in AI chat:', error);
       toast({
         title: "Error",
-        description: "Failed to get AI response. Please try again.",
+        description: error instanceof Error ? error.message : "Failed to get AI response. Please try again.",
         variant: "destructive",
       });
     } finally {
