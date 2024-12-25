@@ -1,8 +1,38 @@
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { AgentDashboard } from "@/components/agent/AgentDashboard";
 import { AIChat } from "@/components/agent/AIChat";
+import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Agent = () => {
+  const { toast } = useToast();
+
+  // Subscribe to real-time notifications
+  useEffect(() => {
+    const channel = supabase
+      .channel('ai-recommendations')
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'ai_recommendations',
+        },
+        (payload) => {
+          toast({
+            title: payload.new.title,
+            description: payload.new.description,
+          });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [toast]);
+
   return (
     <DashboardLayout>
       <div className="space-y-8">

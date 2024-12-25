@@ -9,6 +9,53 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      ai_recommendations: {
+        Row: {
+          acted_at: string | null
+          created_at: string
+          description: string
+          expires_at: string | null
+          id: string
+          recommendation_data: Json | null
+          status: string | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          acted_at?: string | null
+          created_at?: string
+          description: string
+          expires_at?: string | null
+          id?: string
+          recommendation_data?: Json | null
+          status?: string | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          acted_at?: string | null
+          created_at?: string
+          description?: string
+          expires_at?: string | null
+          id?: string
+          recommendation_data?: Json | null
+          status?: string | null
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_recommendations_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       bank_accounts: {
         Row: {
           account_mask: string
@@ -165,6 +212,7 @@ export type Database = {
       strategies: {
         Row: {
           allocation_percentage: number
+          auto_execute: boolean | null
           created_at: string
           description: string | null
           id: string
@@ -174,12 +222,14 @@ export type Database = {
           status: string
           stop_loss: number | null
           target_profit: number | null
+          trigger_conditions: Json | null
           type: string
           updated_at: string
           user_id: string
         }
         Insert: {
           allocation_percentage?: number
+          auto_execute?: boolean | null
           created_at?: string
           description?: string | null
           id?: string
@@ -189,12 +239,14 @@ export type Database = {
           status?: string
           stop_loss?: number | null
           target_profit?: number | null
+          trigger_conditions?: Json | null
           type: string
           updated_at?: string
           user_id: string
         }
         Update: {
           allocation_percentage?: number
+          auto_execute?: boolean | null
           created_at?: string
           description?: string | null
           id?: string
@@ -204,6 +256,7 @@ export type Database = {
           status?: string
           stop_loss?: number | null
           target_profit?: number | null
+          trigger_conditions?: Json | null
           type?: string
           updated_at?: string
           user_id?: string
