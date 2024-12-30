@@ -69,13 +69,13 @@ export default {
         },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-5px)" }, // Reduced movement from -10px to -5px
+          "50%": { transform: "translateY(-3px)" }, // Even more subtle movement
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        float: "float 8s ease-in-out infinite", // Increased duration from 6s to 8s
+        float: "float 15s ease-in-out infinite", // Much slower animation (15 seconds)
       },
     },
   },
