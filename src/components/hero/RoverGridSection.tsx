@@ -2,28 +2,28 @@ import { Brain, LineChart, Wallet } from "lucide-react";
 
 export const RoverGridSection = () => {
   return (
-    <div className="space-y-16">
-      <div className="text-center space-y-4">
-        <h2 className="text-4xl font-bold text-white">RoverGrid AI Assistant</h2>
+    <div className="space-y-20">
+      <div className="text-center space-y-6">
+        <h2 className="text-5xl font-bold text-white">RoverGrid AI Assistant</h2>
         <p className="text-xl text-gray-400">Your Personalized Investment Guide</p>
-        <p className="text-secondary italic">"Guided by AI. Empowered by Intelligence."</p>
+        <p className="text-secondary italic text-lg">"Guided by AI. Empowered by Intelligence."</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-[#1E2330]/90 backdrop-blur p-8 rounded-2xl border border-[#2A2E3B] hover:border-secondary transition-colors group">
-          <Brain className="h-8 w-8 text-[#4FD1C5] mb-4" />
-          <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">Analyze</h3>
-          <p className="text-gray-400">RoverGrid analyzes your account balance, risk tolerance, and financial goals in real-time.</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="bg-[#1E2330]/90 backdrop-blur-sm p-10 rounded-2xl border border-[#2A2E3B] hover:border-secondary transition-all group hover:transform hover:scale-[1.02] duration-300">
+          <Brain className="h-10 w-10 text-[#4FD1C5] mb-6" />
+          <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#4FD1C5] transition-colors">Analyze</h3>
+          <p className="text-gray-400 leading-relaxed">Advanced real-time analysis of your portfolio metrics, risk tolerance, and financial objectives.</p>
         </div>
-        <div className="bg-[#1E2330]/90 backdrop-blur p-8 rounded-2xl border border-[#2A2E3B] hover:border-secondary transition-colors group">
-          <Wallet className="h-8 w-8 text-[#4FD1C5] mb-4" />
-          <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">Recommend</h3>
-          <p className="text-gray-400">It provides tailored investment opportunities across trading bots, crypto, real estate, and alternative assets.</p>
+        <div className="bg-[#1E2330]/90 backdrop-blur-sm p-10 rounded-2xl border border-[#2A2E3B] hover:border-secondary transition-all group hover:transform hover:scale-[1.02] duration-300">
+          <Wallet className="h-10 w-10 text-[#4FD1C5] mb-6" />
+          <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#4FD1C5] transition-colors">Recommend</h3>
+          <p className="text-gray-400 leading-relaxed">Data-driven investment opportunities across multiple asset classes, tailored to your profile.</p>
         </div>
-        <div className="bg-[#1E2330]/90 backdrop-blur p-8 rounded-2xl border border-[#2A2E3B] hover:border-secondary transition-colors group">
-          <LineChart className="h-8 w-8 text-[#4FD1C5] mb-4" />
-          <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">Optimize</h3>
-          <p className="text-gray-400">It helps balance your portfolio for maximum growth while managing risks effectively.</p>
+        <div className="bg-[#1E2330]/90 backdrop-blur-sm p-10 rounded-2xl border border-[#2A2E3B] hover:border-secondary transition-all group hover:transform hover:scale-[1.02] duration-300">
+          <LineChart className="h-10 w-10 text-[#4FD1C5] mb-6" />
+          <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#4FD1C5] transition-colors">Optimize</h3>
+          <p className="text-gray-400 leading-relaxed">Continuous portfolio optimization with intelligent risk management and growth strategies.</p>
         </div>
       </div>
     </div>

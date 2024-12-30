@@ -2,43 +2,43 @@ import { Shield, Lock, Clock } from "lucide-react";
 
 export const ProtectionGuarantee = () => {
   return (
-    <section className="py-24 bg-primary/5">
-      <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Your Investment, Our Priority</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+    <section className="py-32 bg-primary/5">
+      <div className="container max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-6">Your Investment, Our Priority</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             We implement industry-leading security measures to ensure your investments are protected around the clock.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="group p-6 rounded-2xl bg-background border transition-all hover:shadow-lg">
-            <div className="mb-4 p-3 rounded-full bg-secondary/10 w-fit group-hover:bg-secondary/20 transition-colors">
-              <Shield className="h-6 w-6 text-secondary" />
+          <div className="group p-8 rounded-2xl bg-background border transition-all hover:shadow-xl hover:transform hover:scale-[1.02] duration-300">
+            <div className="mb-6 p-4 rounded-full bg-secondary/10 w-fit group-hover:bg-secondary/20 transition-colors">
+              <Shield className="h-8 w-8 text-secondary" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Asset Protection</h3>
-            <p className="text-muted-foreground">
+            <h3 className="text-2xl font-semibold mb-4">Asset Protection</h3>
+            <p className="text-muted-foreground leading-relaxed">
               Your investments are secured with military-grade encryption and multi-layer protection protocols.
             </p>
           </div>
           
-          <div className="group p-6 rounded-2xl bg-background border transition-all hover:shadow-lg">
-            <div className="mb-4 p-3 rounded-full bg-secondary/10 w-fit group-hover:bg-secondary/20 transition-colors">
-              <Lock className="h-6 w-6 text-secondary" />
+          <div className="group p-8 rounded-2xl bg-background border transition-all hover:shadow-xl hover:transform hover:scale-[1.02] duration-300">
+            <div className="mb-6 p-4 rounded-full bg-secondary/10 w-fit group-hover:bg-secondary/20 transition-colors">
+              <Lock className="h-8 w-8 text-secondary" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Secure Authentication</h3>
-            <p className="text-muted-foreground">
-              Two-factor authentication and biometric security features keep your account safe from unauthorized access.
+            <h3 className="text-2xl font-semibold mb-4">Secure Authentication</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Advanced two-factor authentication and biometric security features protect your account access.
             </p>
           </div>
           
-          <div className="group p-6 rounded-2xl bg-background border transition-all hover:shadow-lg">
-            <div className="mb-4 p-3 rounded-full bg-secondary/10 w-fit group-hover:bg-secondary/20 transition-colors">
-              <Clock className="h-6 w-6 text-secondary" />
+          <div className="group p-8 rounded-2xl bg-background border transition-all hover:shadow-xl hover:transform hover:scale-[1.02] duration-300">
+            <div className="mb-6 p-4 rounded-full bg-secondary/10 w-fit group-hover:bg-secondary/20 transition-colors">
+              <Clock className="h-8 w-8 text-secondary" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">24/7 Monitoring</h3>
-            <p className="text-muted-foreground">
-              Our advanced systems continuously monitor for suspicious activities and prevent potential threats.
+            <h3 className="text-2xl font-semibold mb-4">24/7 Monitoring</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Our advanced systems continuously monitor and prevent potential security threats in real-time.
             </p>
           </div>
         </div>
