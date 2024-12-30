@@ -1,7 +1,5 @@
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
-import { ProtectionGuarantee } from "@/components/ProtectionGuarantee";
-import { Footer } from "@/components/Footer";
 import { useAuth } from "@/contexts/AuthContext";
 import { Navigate } from "react-router-dom";
 
@@ -13,11 +11,9 @@ export default function Index() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-[#1B2332]">
       <Navbar />
       <Hero />
-      <ProtectionGuarantee />
-      <Footer />
     </div>
   );
 }
