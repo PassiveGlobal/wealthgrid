@@ -35,13 +35,13 @@ export const Navbar = () => {
           <div className="hidden md:flex gap-6">
             <Link to="/credit-card" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
               <span className="flex items-center gap-2">
-                <CreditCard className="h-4 w-4" />
+                <CreditCard className="h-4 w-4 text-secondary" />
                 Credit Card
               </span>
             </Link>
             <Link to="/learn" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
               <span className="flex items-center gap-2">
-                <BookOpen className="h-4 w-4" />
+                <BookOpen className="h-4 w-4 text-secondary" />
                 Learn
               </span>
             </Link>
@@ -62,7 +62,7 @@ export const Navbar = () => {
                 className="text-primary-foreground hover:text-primary-foreground/90"
                 onClick={handleSignOut}
               >
-                <LogOut className="mr-2 h-4 w-4" /> Sign Out
+                <LogOut className="mr-2 h-4 w-4 text-secondary" /> Sign Out
               </Button>
               <Button 
                 className="bg-secondary hover:bg-secondary/90"
@@ -78,7 +78,7 @@ export const Navbar = () => {
                 className="text-primary-foreground hover:text-primary-foreground/90 hidden sm:inline-flex"
                 onClick={() => navigate('/login')}
               >
-                <Lock className="mr-2 h-4 w-4" /> Login
+                <Lock className="mr-2 h-4 w-4 text-secondary" /> Login
               </Button>
               <Button 
                 className="bg-secondary hover:bg-secondary/90"
@@ -92,4 +92,4 @@ export const Navbar = () => {
       </div>
     </nav>
   );
-}
+};
