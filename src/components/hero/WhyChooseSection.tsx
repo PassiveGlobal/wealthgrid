@@ -1,44 +1,47 @@
-import { Button } from "@/components/ui/button";
-import { TrendingUp, Wallet, LineChart } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Shield, Zap, LineChart } from "lucide-react";
 
 export const WhyChooseSection = () => {
-  const navigate = useNavigate();
-  
   return (
-    <div className="bg-[#1E2330]/90 backdrop-blur p-8 rounded-2xl border border-[#2A2E3B]">
-      <h3 className="text-3xl font-bold text-white mb-8">Why Choose RoverGrid?</h3>
-      <div className="space-y-6">
-        <div className="flex items-start gap-4">
-          <TrendingUp className="h-6 w-6 text-[#4FD1C5] shrink-0" />
-          <div>
-            <h4 className="text-xl font-semibold text-white">Real-Time Insights</h4>
-            <p className="text-gray-400">Stay ahead with up-to-date recommendations powered by cutting-edge AI.</p>
-          </div>
-        </div>
-        <div className="flex items-start gap-4">
-          <Wallet className="h-6 w-6 text-[#4FD1C5] shrink-0" />
-          <div>
-            <h4 className="text-xl font-semibold text-white">Personalized Strategy</h4>
-            <p className="text-gray-400">Tailored investment suggestions based on your unique financial profile.</p>
-          </div>
-        </div>
-        <div className="flex items-start gap-4">
-          <LineChart className="h-6 w-6 text-[#4FD1C5] shrink-0" />
-          <div>
-            <h4 className="text-xl font-semibold text-white">Smart Growth</h4>
-            <p className="text-gray-400">Unlock the potential of intelligent investing with AI.</p>
-          </div>
-        </div>
+    <div className="space-y-20">
+      <div className="text-center space-y-6">
+        <h2 className="text-5xl font-bold text-white">Why Choose WealthGrid</h2>
+        <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          Experience the future of wealth management with our cutting-edge platform
+        </p>
       </div>
-      <div className="mt-8 text-center">
-        <Button 
-          size="lg" 
-          className="bg-[#4FD1C5] hover:bg-[#45B8AE] text-white text-lg px-8 py-6"
-          onClick={() => navigate('/signup')}
-        >
-          Get Started with RoverGrid
-        </Button>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="bg-[#1E2330]/90 backdrop-blur-sm p-10 rounded-2xl border border-[#2A2E3B] hover:border-secondary transition-all group hover:transform hover:scale-[1.02] duration-300">
+          <Shield className="h-10 w-10 text-secondary mb-6" />
+          <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-secondary transition-colors">
+            Enterprise Security
+          </h3>
+          <p className="text-gray-400 leading-relaxed">
+            Bank-grade encryption and security protocols to protect your investments
+            24/7.
+          </p>
+        </div>
+
+        <div className="bg-[#1E2330]/90 backdrop-blur-sm p-10 rounded-2xl border border-[#2A2E3B] hover:border-secondary transition-all group hover:transform hover:scale-[1.02] duration-300">
+          <Zap className="h-10 w-10 text-secondary mb-6" />
+          <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-secondary transition-colors">
+            Lightning Fast
+          </h3>
+          <p className="text-gray-400 leading-relaxed">
+            Execute trades and manage your portfolio with unprecedented speed and
+            precision.
+          </p>
+        </div>
+
+        <div className="bg-[#1E2330]/90 backdrop-blur-sm p-10 rounded-2xl border border-[#2A2E3B] hover:border-secondary transition-all group hover:transform hover:scale-[1.02] duration-300">
+          <LineChart className="h-10 w-10 text-secondary mb-6" />
+          <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-secondary transition-colors">
+            Advanced Analytics
+          </h3>
+          <p className="text-gray-400 leading-relaxed">
+            Make informed decisions with our sophisticated market analysis tools.
+          </p>
+        </div>
       </div>
     </div>
   );
