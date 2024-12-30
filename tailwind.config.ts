@@ -75,7 +75,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        float: "float 30s ease-in-out infinite", // Much slower animation (30 seconds)
+        float: "float 60s ease-in-out infinite", // Ultra slow animation (60 seconds)
       },
     },
   },
