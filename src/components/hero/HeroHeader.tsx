@@ -6,13 +6,13 @@ export const HeroHeader = () => {
 
   return (
     <div className="space-y-10">
-      <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight">
+      <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight text-left">
         Invest Smarter with{" "}
         <span className="bg-gradient-to-r from-secondary via-secondary/80 to-secondary bg-clip-text text-transparent">
           WealthGrid
         </span>
       </h1>
-      <p className="text-xl text-gray-400 max-w-2xl leading-relaxed">
+      <p className="text-xl text-gray-400 max-w-2xl leading-relaxed text-left">
         Experience the future of wealth management. Our advanced portfolio platform seamlessly integrates trading bots, real estate, and cryptocurrency investments.
       </p>
       <div className="flex flex-col sm:flex-row gap-6">

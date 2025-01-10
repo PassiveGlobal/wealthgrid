@@ -19,7 +19,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50 bg-primary">
+    <nav className="fixed w-full z-50 bg-[#1a1f2c]/95 backdrop-blur-sm border-b border-[#2A3040]">
       <div className="container flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6 sm:gap-8">
           <Link to="/" className="inline-flex items-center">
@@ -33,22 +33,22 @@ export const Navbar = () => {
             <span className="text-2xl sm:text-3xl font-bold text-secondary translate-y-[1.5px] -ml-1">WealthGrid</span>
           </Link>
           <div className="hidden md:flex gap-6">
-            <Link to="/credit-card" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+            <Link to="/credit-card" className="text-sm font-medium text-gray-300 hover:text-secondary transition-colors">
               <span className="flex items-center gap-2">
                 <CreditCard className="h-4 w-4 text-secondary" />
                 Credit Card
               </span>
             </Link>
-            <Link to="/learn" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+            <Link to="/learn" className="text-sm font-medium text-gray-300 hover:text-secondary transition-colors">
               <span className="flex items-center gap-2">
                 <BookOpen className="h-4 w-4 text-secondary" />
                 Learn
               </span>
             </Link>
-            <Link to="/testimonials" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+            <Link to="/testimonials" className="text-sm font-medium text-gray-300 hover:text-secondary transition-colors">
               Testimonials
             </Link>
-            <Link to="/contact" className="text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+            <Link to="/contact" className="text-sm font-medium text-gray-300 hover:text-secondary transition-colors">
               Contact
             </Link>
           </div>
@@ -59,7 +59,7 @@ export const Navbar = () => {
             <>
               <Button 
                 variant="ghost" 
-                className="text-primary-foreground hover:text-primary-foreground/90"
+                className="text-gray-300 hover:text-white"
                 onClick={handleSignOut}
               >
                 <LogOut className="mr-2 h-4 w-4 text-secondary" /> Sign Out
@@ -75,7 +75,7 @@ export const Navbar = () => {
             <>
               <Button 
                 variant="ghost" 
-                className="text-primary-foreground hover:text-primary-foreground/90 hidden sm:inline-flex"
+                className="text-gray-300 hover:text-white hidden sm:inline-flex"
                 onClick={() => navigate('/login')}
               >
                 <Lock className="mr-2 h-4 w-4 text-secondary" /> Login
