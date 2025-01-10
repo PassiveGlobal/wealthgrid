@@ -29,7 +29,7 @@ export default {
           foreground: "#F1F5F9",
         },
         secondary: {
-          DEFAULT: "#38d39f",
+          DEFAULT: "#10B981",
           foreground: "#F1F5F9",
         },
         accent: {
@@ -53,9 +53,6 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      backgroundImage: {
-        'gradient-dark': 'linear-gradient(to bottom, #1a1f2c, #0f172a)',
-      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -72,18 +69,13 @@ export default {
         },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-2px)" },
-        },
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+          "50%": { transform: "translateY(-2px)" }, // Extremely subtle movement
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        float: "float 60s ease-in-out infinite",
-        "fade-up": "fade-up 0.5s ease-out",
+        float: "float 60s ease-in-out infinite", // Ultra slow animation (60 seconds)
       },
     },
   },
